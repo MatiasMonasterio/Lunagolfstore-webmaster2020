@@ -1,0 +1,81 @@
+.user-header{
+    height: 120px;
+    background-color: $greendark;
+    display: flex;
+    align-items: flex-end;
+
+    &__title{
+        color: $white;
+        text-align: right;
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+}
+
+
+.user-navigation{
+    z-index: 9;
+    background-color: $white;
+    color: $graydark;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    &__list{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__item{
+        list-style: none;
+    }
+
+    &__link{
+        color: $white;
+        text-decoration: none;
+        display: flex;
+        padding: 15px;
+        cursor: pointer;
+        color: inherit;
+        width: auto;
+
+        &-icon{
+            font-size: 1.25rem;
+            transform: scaleX(0);
+            transition: transform .1s;
+            transform-origin: left;
+        }
+
+        &-p{
+            margin-left: 15.5px;
+        }
+
+        &-active,
+        &:hover{
+            color: $greenmedium;
+
+            .user-navigation__link-icon{
+                transform: scaleX(1);
+            }
+        }
+
+    }
+
+    @include mobile{
+        display: none;
+    }
+}
+
+.user-view{
+    margin: 50px auto;
+
+    @include mobile{
+        flex-grow: initial;
+    }
+}
+
+
+
+@import './_userView__user-cart';
+@import './_userView__user-info';
+@import './userView__user-favorite';
+@import './_userView_user-profile-edit'

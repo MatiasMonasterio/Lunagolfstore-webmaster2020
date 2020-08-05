@@ -1,0 +1,62 @@
+[
+    {
+        "title": "Indumentaria",
+        "items": [
+            "Caballero",
+            "Dama",
+            "Unisex"
+        ]
+    },
+    {
+        "title": "Color",
+        "items": [
+            "Agua",
+            "Naranja",
+            "Verde",
+            "Terracota",
+            "Salmón",
+            "Rojo",
+            "Plata",
+            "Obispo",
+            "Negro",
+            "Violeta",
+            "Azul",
+            "Gris",
+            "Fucsia",
+            "Celeste",
+            "Bordó",
+            "Blanco",
+            "Azul Petróleo",
+            "Blanco/Azul",
+            "Gris Claro"
+        ]
+    },
+    {
+        "title": "Talle",
+        "items": [
+            "32",
+            "34",
+            "36",
+            "38",
+            "40",
+            "Xs",
+            "S",
+            "M",
+            "L",
+            "Xl",
+            "Xxl"
+        ]
+    },
+    {
+        "title": "Marca",
+        "items": [
+            "Adidas",
+            "Footjoy",
+            "Nike Golf",
+            "Procer",
+            "Salomon",
+            "Sturburt",
+            "Wilson"
+        ]
+    }
+]

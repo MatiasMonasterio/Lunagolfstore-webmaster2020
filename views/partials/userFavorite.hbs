@@ -1,0 +1,16 @@
+<div class="favorite">
+    {{#each favoriteList}}
+    <div class="favorite__product-container">
+        {{#with this.product}}
+        <img src="{{image}}" alt="{{name}}" class="favorite__product-image">
+        <div class="favorite__product-info">
+            <h5 class="favorite__product-name">{{brand}} | {{name}}</h5>
+            <p class="favorite__product-price">{{price}}</p>
+            <button class="favorite__product-button">Agregar a carrito</button>
+        </div>
+        {{/with}}
+
+        <button class="favorite__product-delete" data-favorite-id="{{this.id}}">x</button>
+    </div>
+    {{/each}}
+</div>

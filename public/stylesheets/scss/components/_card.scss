@@ -1,0 +1,89 @@
+.card{
+    // width: calc(95% / 5) !important;
+    margin: 0;
+    box-shadow: 0 0 8px rgba( 0, 0, 0, 0.4);
+    transition: background-color .12s, box-shadow .12s ;
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    object-fit: cover;
+    overflow: hidden;
+    background-color: $white;
+
+    &__descuento{
+        position: absolute;
+        background-color: #309C3F;
+        z-index: 1;
+        right: -26px;
+        top: 24px;
+        transform: rotate(45deg);
+        color: #f8f8f8;
+        font-size: .8rem;
+        padding: 3px 0;
+        width: 120px;
+        text-align: center;
+    }
+
+    &__image-container{
+        overflow: hidden;
+        position: relative;
+        background-color: #ffffff;
+        
+        &::after{
+            content: '';
+            display: block;
+            padding-bottom: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &__image{
+        margin: 0 auto;
+        width: 100%;
+        max-height: 100%;
+        position: absolute;
+        transition: transform .12s;
+        object-fit: contain;
+    }
+
+    &__body{
+        padding: 20px 15px;
+
+        &-title{
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            line-height: 1;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            text-transform: uppercase;
+        }
+
+        &-price{
+            color: #309C3F;
+            font-weight: 700;
+        }
+    }
+
+    &:hover,
+    &:focus-within{
+        background-color: $greenmedium;
+        box-shadow: 0 0 10px 1.2px rgba(43, 128, 106, 0.8);
+
+        .card__body-title{ 
+            color: #f8f8f8; 
+        }
+
+        .card__image{
+            transform: scale(1.11);
+        }
+
+        .card__body-price{
+            color: #92EA48;
+        }
+    }
+}

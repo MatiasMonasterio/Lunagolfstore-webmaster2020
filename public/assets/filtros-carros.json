@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Carros",
+        "items": [
+            "Manual",
+            "Eléctrico"
+        ]
+    },
+    {
+        "title": "Color",
+        "items": [
+            "Negro",
+            "Negro/Verde",
+            "Negro/Rojo"
+        ]
+    },
+    {
+        "title": "Marca",
+        "items": [
+            "Hil Billy",
+            "Powakaddy",
+            "Revo Steer"
+        ]
+    },
+    {
+        "title": "Ruedas",
+        "items": [
+            "2",
+            "2 - Junior",
+            "3",
+            "4"
+        ]
+    }
+]

@@ -1,0 +1,115 @@
+<header class="secundary-header">
+    {{!-- <div class="container"> --}}
+        <h3 class="secundary-header__title">{{user.name}} {{user.lastname}}</h3>
+    {{!-- </div> --}}
+</header>
+
+<nav class="user-navigation">
+    <ul class="user-navigation__list container">
+
+        {{#if carrito}}
+        <li class="user-navigation__item">
+            <a href="/user/cart" class="user-navigation__link user-navigation__link-active">
+                <i class="user-navigation__link-icon fas fa-shopping-cart"></i>
+                <p class="user-navigation__link-p">Carrito</p> 
+            </a>
+        </li>
+        {{/if}}
+        {{#unless carrito}}
+        <li class="user-navigation__item">
+            <a href="/user/cart" class="user-navigation__link">
+                <i class="user-navigation__link-icon fas fa-shopping-cart"></i>
+                <p class="user-navigation__link-p">Carrito</p> 
+            </a>
+        </li>
+        {{/unless}}
+
+        {{#if compras}}
+        <li class="user-navigation__item">
+            <a href="/user/purchases" class="user-navigation__link user-navigation__link-active">
+                <i class="user-navigation__link-icon fas fa-shopping-basket"></i>
+                <p class="user-navigation__link-p">Mis compras</p> 
+            </a>
+        </li>
+        {{/if}}
+        {{#unless compras}}
+        <li class="user-navigation__item">
+            <a href="/user/purchases" class="user-navigation__link">
+                <i class="user-navigation__link-icon fas fa-shopping-basket"></i>
+                <p class="user-navigation__link-p">Mis compras</p> 
+            </a>
+        </li>
+        {{/unless}}
+
+        {{#if favoritos}}
+        <li class="user-navigation__item">
+            <a href="/user/favorite" class="user-navigation__link user-navigation__link-active">
+                <i class="user-navigation__link-icon fas fa-heart"></i>
+                <p class="user-navigation__link-p">Favoritos</p> 
+            </a>
+        </li>
+        {{/if}}
+        {{#unless favoritos}}
+        <li class="user-navigation__item">
+            <a href="/user/favorite" class="user-navigation__link">
+                <i class="user-navigation__link-icon fas fa-heart"></i>
+                <p class="user-navigation__link-p">Favoritos</p> 
+            </a>
+        </li>
+        {{/unless}}
+
+        {{#if historial}}
+        <li class="user-navigation__item">
+            <a href="/user/history-search" class="user-navigation__link user-navigation__link-active">
+                <i class="user-navigation__link-icon fas fa-history"></i>
+                <p class="user-navigation__link-p">Historial</p> 
+            </a>
+        </li>
+        {{/if}}
+        {{#unless historial}}
+        <li class="user-navigation__item">
+            <a href="/user/history-search" class="user-navigation__link">
+                <i class="user-navigation__link-icon fas fa-history"></i>
+                <p class="user-navigation__link-p">Historial</p> 
+            </a>
+        </li>
+        {{/unless}}
+
+        {{#if profile}}
+        <li class="user-navigation__item">
+            <a href="/user/profile" class="user-navigation__link user-navigation__link-active">
+                <i class="user-navigation__link-icon fas fa-user"></i>
+                <p class="user-navigation__link-p">Perfil</p> 
+            </a>
+        </li>
+        {{/if}}
+        {{#unless profile}}
+        <li class="user-navigation__item">
+            <a href="/user/profile" class="user-navigation__link">
+                <i class="user-navigation__link-icon fas fa-user"></i>
+                <p class="user-navigation__link-p">Perfil</p> 
+            </a>
+        </li>
+        {{/unless}}
+
+    </ul>
+</nav>
+
+<div class="container user-view">
+
+    {{#if favoritos}}
+    {{>userFavorite}}
+    {{/if}}
+
+    {{#if carrito}}
+    {{>userCart}}
+    {{/if}}
+
+    {{#if profile}}
+    {{>userProfile}}
+    {{/if}}
+
+    {{#if profileEdit}}
+    {{>userProfileEdit}}
+    {{/if}}
+</div>

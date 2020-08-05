@@ -1,0 +1,21 @@
+<select name="" id="" class="products-main__list-select">
+    <option value="" class="products-main__list-option">Precio: Mayor a Menor</option>
+    <option value="" class="products-main__list-option">Precio: Menor a Mayor</option>
+    <option value="" class="products-main__list-option">Nombre: A - Z</option>
+    <option value="" class="products-main__list-option">Nombre: Z - A</option>
+    <option value="" class="products-main__list-option">Fecha: Más Nuevo</option>
+    <option value="" class="products-main__list-option">Fecha: Más Antiguo</option>
+</select>   <!-- products-main__list-select -->
+
+<div class="filter-mobile products-main__filter-mobile">
+    <button class="filter-mobile__button"><i class="filter-mobile__icon fas fa-sort-amount-down"></i>Ordenar</button>
+    <button class="filter-mobile__button"><i class="filter-mobile__icon fas fa-filter"></i>Filtrar</button>
+</div>
+
+{{#each productos}}
+    {{>productCard}}
+{{/each}}
+
+{{ productos }}
+
+<button class="products-main__list-button">Mostrar más productos</button>

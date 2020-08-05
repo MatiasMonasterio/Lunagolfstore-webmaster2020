@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Putter mini spider cooper",
+        "id": 1,
+        "brand": "Taylormade",
+        "price": 24320,
+        "image": "jic81_zoom_d1-14809de521d974942315706555331195-1024-1024.jpg",
+        "descuento": {
+            "valor": true,
+            "porcentaje": 50
+        }
+    },
+    {
+        "name": "Putter mini spider cooper",
+        "id": 2,
+        "brand": "Taylormade",
+        "price": 24320,
+        "image": "jic81_zoom_d1-14809de521d974942315706555331195-1024-1024.jpg",
+        "descuento": {
+            "valor": true,
+            "porcentaje": 50
+        }
+    },
+    {
+        "name": "Putter mini spider cooper",
+        "id": 3,
+        "brand": "Taylormade",
+        "price": 24320,
+        "image": "jic81_zoom_d1-14809de521d974942315706555331195-1024-1024.jpg",
+        "descuento": {
+            "valor": true,
+            "porcentaje": 50
+        }
+    },
+    {
+        "name": "Putter mini spider cooper",
+        "id": 4,
+        "brand": "Taylormade",
+        "price": 24320,
+        "image": "jic81_zoom_d1-14809de521d974942315706555331195-1024-1024.jpg",
+        "descuento": {
+            "valor": true,
+            "porcentaje": 50
+        }
+    },
+    {
+        "name": "Putter mini spider cooper",
+        "id": 5,
+        "brand": "Taylormade",
+        "price": 24320,
+        "image": "jic81_zoom_d1-14809de521d974942315706555331195-1024-1024.jpg",
+        "descuento": {
+            "valor": true,
+            "porcentaje": 50
+        }
+    }
+]

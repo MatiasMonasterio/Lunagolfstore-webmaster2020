@@ -1,0 +1,101 @@
+[
+    {
+        "title": "palos y sets",
+        "items": [ 
+            "drivers", 
+            "madera", 
+            "híbridos", 
+            "Hierros",
+            "Wedges",
+            "Putters",
+            "Chippers",
+            "Damas",
+            "Juniors",
+            "Sets completos"
+        ]
+    },
+    {
+        "title": "color",
+        "items": [
+            "azul",
+            "black",
+            "blanco",
+            "champagne",
+            "negro",
+            "chrome",
+            "cooper"
+        ]
+    },
+    {
+        "title": "flexión",
+        "items": [
+            "acero",
+            "acero - rugular",
+            "Acero - Stiff",
+            "Grafito",
+            "Grafito - lady",
+            "Grafito - Regular",
+            "Grafito - Senior",
+            "Lady",
+            "Regular",
+            "Senior",
+            "Stiff",
+            "X-stiff"
+        ]
+    },
+    {
+        "title": "Loft",
+        "items": [
+            "10.5°",
+            "12°",
+            "14°",
+            "15°",
+            "16.5°",
+            "17°",
+            "18°",
+            "19°",
+            "20°",
+            "21°",
+            "22°",
+            "25°",
+            "48°",
+            "50°",
+            "52°",
+            "54°",
+            "56°",
+            "58°",
+            "60°",
+            "62°",
+            "64°",
+            "9.5°",
+            "9°"
+        ]
+    },
+    {
+        "title": "Marca",
+        "items": [
+            "Callaway",
+            "Cobra",
+            "Odyssey",
+            "Orlimar",
+            "Ping",
+            "Scotty Cameron",
+            "Taylormade",
+            "Titleist",
+            "Wilson",
+            "Wilson Staff"
+        ]
+    },
+    {
+        "title": "Set",
+        "items": [
+            "4 - A",
+            "4 - P",
+            "4 - Sw",
+            "5 - A",
+            "5 - S",
+            "5 - Sw",
+            "Combo"
+        ]
+    }
+]

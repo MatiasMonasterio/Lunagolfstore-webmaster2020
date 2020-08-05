@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Lora', serif;
+    font-size: 15.5px;
+    background-color: $white;
+
+    @include mobile{
+        font-size: 14px;
+    }
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.header{
+    height: 75vh;
+    max-height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__title{
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin: 0;
+        color: $white;
+    }
+}
+
+.secundary-header{
+    height: 140px;
+    background-color: $greendark;
+    display: flex;
+    align-items: flex-end;
+
+    &__title{
+        display: block;
+        max-width: 1200px;
+        width: 80%;
+        margin: 0 auto;
+        text-align: right;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: $white;
+        margin-bottom: 15px;
+    }
+}

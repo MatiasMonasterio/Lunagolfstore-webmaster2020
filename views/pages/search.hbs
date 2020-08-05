@@ -1,0 +1,33 @@
+<header class="search-header header">
+    <h1 class="header__title search-header__title container">Resultados de busquedas</h1>
+</header>
+
+<section class="search-results container">
+
+    {{#if productos}}
+    <select name="" id="" class="products-main__list-select search-results__select">
+        <option value="" class="products-main__list-option">Precio: Mayor a Menor</option>
+        <option value="" class="products-main__list-option">Precio: Menor a Mayor</option>
+        <option value="" class="products-main__list-option">Nombre: A - Z</option>
+        <option value="" class="products-main__list-option">Nombre: Z - A</option>
+        <option value="" class="products-main__list-option">Fecha: Más Nuevo</option>
+        <option value="" class="products-main__list-option">Fecha: Más Antiguo</option>
+    </select>   <!-- products-main__list-select -->
+
+    <div class="filter-mobile products-main__filter-mobile">
+        <button class="filter-mobile__button"><i class="filter-mobile__icon fas fa-sort-amount-down"></i>Ordenar</button>
+    </div>
+
+    {{#each productos}}
+        {{>productCard}}
+    {{/each}}
+
+    {{/if}}
+
+    {{!-- <button class="products-main__list-button search-results__button">Mostrar más productos</button> --}}
+    {{#unless productos}}
+    <div class="search-results__message">
+        <p class="search-results__message-text">No hay resultados para  <span class="search-results__message-span">{{valor}}</span></p>
+    </div>
+    {{/unless}}
+</section>

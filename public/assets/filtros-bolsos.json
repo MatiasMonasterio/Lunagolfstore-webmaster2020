@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Bolsas",
+        "items": [
+            "Tripode",
+            "Carro",
+            "Staff"
+        ]
+    },
+    {
+        "title": "Color",
+        "items": [
+            "Azul",
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Rojo",
+            "Azul/Blanco",
+            "Gris/Negro",
+            "Negro/Azul",
+            "Negro/Blanco",
+            "Negro/Gris"
+        ]
+    },
+    {
+        "title": "Marca",
+        "items": [
+            "Bridgestone",
+            "Taylormade"
+        ]
+    }
+]

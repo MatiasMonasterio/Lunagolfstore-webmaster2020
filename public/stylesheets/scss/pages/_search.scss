@@ -1,0 +1,50 @@
+.search-header{
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: $greendark;
+    height: 100px;
+
+    &__title{
+        text-align: right;
+        padding-bottom: 10px;
+    }
+}
+
+.search-results{
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat( 5, 1fr );
+    gap: 20px;
+    min-height: 40vh;
+    align-items: center;
+
+    &__select,
+    &__button,
+    &__message{
+        grid-column: 1/6;
+    }
+
+    &__message{
+        display: block;
+        width: 100%;
+        padding: 40px 50px;
+        background-color: $graylight;
+        border-radius: 10px;
+        text-align: center;
+
+        &-span{
+            font-weight: 700;
+        }
+    }
+
+    @include mobile{
+        margin: 20px auto;
+        grid-template-columns: 1fr 1fr;
+
+        &__select,
+        &__button,
+        &__message{
+            grid-column: 1/3;
+        }
+    }
+}

@@ -1,0 +1,177 @@
+{{#with product}}
+<header class="product-header">
+    <h1 class="product-header__title">{{brand}}</h1>
+</header>
+
+<main class="product-main">
+    <div class="product-main__info product-block container">
+        <div class="product-block__image-container">
+            <img class="product-block__image-container-img" src="{{image}}" alt="{{name}}">
+            <button class="product-block__image-container-icon" data-product-id="{{id}}" id="addFavorite">
+                <i class="far fa-heart product-block__image-container-icon-2"></i>
+            </button>
+            
+        </div>
+
+        <div class="product-block__info">
+            <h1 class="product-block__info-title">{{name}}</h1>
+            <p class="product-block__info-price">$ {{price}}</p>
+            <p class="product-block__info-fees"><i class="fas fa-credit-card"></i> 12 cuotas de ${{ fee.fee6 }}</p> <button class="product-block__info-fees__btn" id="showModal">Ver medios de pago</button>
+
+            <p class="product-block__info-description">
+                <xmp class="product-block__info-description-xml">{{description}}</xmp>
+            </p>
+            
+            <button type="button" class="product-block__info-button" id="addCardButton" data-product-id="{{id}}">Agregar a Carrito</button>
+        </div>
+    </div>  <!-- PRODUCT-BLOCK  product-main__info -->
+{{/with}}
+
+
+
+
+    <div class="product-main__block container questions">
+        <h4 class="questions__title">Comentarios</h4>
+
+        {{#unless commentsList}}
+        <div class="nocomment-alert">
+            <i class="fas fa-info-circle nocomment-alert__icon"></i>
+            <p class="nocomment-alert__text">No hay comentarios para esta publicacion</p>
+        </div>
+        {{/unless}}
+
+        {{#each commentsList}}
+        <div class="questions__container">
+            <img src="/images/user.png" alt="prueba" class="questions__container-img">
+            <div class="questions__container-body">
+                {{#with this.user}}
+                <h5 class="questions__container-name">{{name}} {{lastname}}</h5>
+                {{/with}}
+                <p class="questions__container-text"> {{content}} </p>
+            </div>  <!-- questions__container-body -->
+        </div>  <!-- questions__container -->
+        {{/each}}
+
+        <form action="/product/{{productId}}" class="questions__form" method="POST">
+            <input type="text"  placeholder="Agregar comentario" class="questions__form-input" name="content" autocomplete="off">
+            <button type="submit" class="questions__form-submit"><i class="fas fa-edit"></i> Publicar</button>
+            {{!-- <input type="submit" value="Publicar" class="questions__form-submit">  --}}
+        </form>
+
+    </div>  <!-- questions product-main__blcok -->
+
+
+
+
+    <div class="product-main__related products-group container">
+        <h2 class="products-group__title">Productos Relacionados</h2>
+        <div class="product-swiper products-group__container">
+            <div class="swiper-wrapper products-group__wrapper">
+                {{#each relacionados}}
+                    {{>productCard}}
+                {{/each}}
+            </div>  <!-- swiper-wrapper -->
+        </div>  <!-- product-swiper -->
+    </div>  <!-- featured-products home-main products-group -->
+    
+</main>
+
+<div class="fees-modal" id="modal">
+    <div class="fees-modal-container">
+        <header class="fees-modal__header">
+            <h4 class="fees-modal__header-title">Medios de pago</h4> <span class="fees-modal__header-close">x</span>
+        </header>
+        
+        <div class="fees-modal__body">
+            <article class="fees-modal__body-article">
+                <h5 class="fees-modal__body-title">Tarjeta de Credito</h5>
+
+                <div class="fees-modal__body-container">
+
+                    <section class="fees-modal__body-section">
+                        <p>6 cuotas sin interés de <span>$ {{ fee.fee6 }}</span></p>
+                        <p>CFT: <span>0,00%</span> Total: <span>$ {{product.price}}</span> En 1 pago: <span>$ {{product.price}}</span></p>
+                        <img src="/images/medios-de-pagos-TODOS/hsbc-access@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-chaco@2x.png" alt="" class="fees-modal__body-image">
+                    </section>
+
+                    <section class="fees-modal__body-section">
+                        <p>3 cuotas sin interés de <span>$ {{ fee.fee3 }}</span></p>
+                        <p>CFT: <span>0,00%</span> Total: <span>$ {{product.price}}</span> En 1 pago: <span>$ {{product.price}}</span></p>
+
+                        <img src="/images/medios-de-pagos-TODOS/fueguina@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-coinag@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/rebanking@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-patagonia-mp@2x.png" alt="" class="fees-modal__body-image">
+                    </section>
+
+                    <section class="fees-modal__body-section">
+                        <p>12 cuotas con otras tarjetas de  <span>$ {{ fee.fee12 }}</span></p>
+                        <p>CFT: <span>0,00%</span> Total: <span>$ {{product.price}}</span> En 1 pago: <span>$ {{product.price}}</span></p>
+
+                        <img src="/images/medios-de-pagos-TODOS/tarjeta-shopping@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/provencred@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-comafi@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-hipotecario@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-industrial@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-nacion@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-patagonia@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/HSBC@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/ICBC@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/macro@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/galicia@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-santa-cruz@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/itau@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-entre-rios@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-santa-fe@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-ciudad@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-sanjuan@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/supervielle@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-santander@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-frances@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-provincia@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-la-pampa@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/bica@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-columbia@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-municipal@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/tarjeta-saenz@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/efectivo-si@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-comafi@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/rebanking@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/cabaldebit@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/nativa@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/tarjeta-walmart@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/carta-automatica@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-comercio@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-coinag@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/banco-patagonia-mp@2x.png" alt="" class="fees-modal__body-image">
+                    </section>
+
+                </div>
+
+            </article>
+            <article class="fees-modal__body-article">
+                <h5 class="fees-modal__body-title">Tarjeta de debito y efectivo</h5>
+
+                <div class="fees-modal__body-container">
+                    <section class="fees-modal__body-section">
+                        <p>Débito</p>
+                        <p>Precio: <span>$ {{product.price}}</span></p>
+
+                        <img src="/images/medios-de-pagos-TODOS/visadebit@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/mastercarddebit@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/cabaldebit@2x.png" alt="" class="fees-modal__body-image">
+                    </section>
+                    <section class="fees-modal__body-section">
+                        <p>Efectivo</p>
+                        <p>Precio <span>$ {{product.price}}</span></p>
+
+                        <img src="/images/medios-de-pagos-TODOS/pagofacil@2x.png" alt="" class="fees-modal__body-image">
+                        <img src="/images/medios-de-pagos-TODOS/rapipago@2x.png" alt="" class="fees-modal__body-image">
+                    </section>
+                </div>
+
+            </article>
+        </div>
+    </div>
+</div>

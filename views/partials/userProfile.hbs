@@ -1,0 +1,89 @@
+<div class="user-info">
+    <h3 class="user-info__title">Mis datos</h3>
+    <article class="user-info__article">
+        <h4 class="user-info__article-title">Información de cuenta</h4>
+
+        {{#with userData}}
+        <p>{{name}} {{lastname}}</p>
+        <p>{{email}}</p>
+        <p>{{telephone}}</p>
+        {{/with}}
+        
+    </article>
+    <article class="user-info__article">
+        <h4 class="user-info__article-title">Suscripciones</h4>
+        <p>Actualmente no estás suscripto a ningún newsletter</p>
+    </article>
+    <article class="user-info__article">
+        <h4 class="user-info__article-title">Libreta de direcciones</h4>
+
+        
+        <div class="user-info__article-address">
+            <h5>Dirección de facturación</h5>
+
+            {{#if billingAddress.street}}
+            {{#with billingAddress}}
+            <p>{{userData.name}} {{userData.lastname}}</p>
+            <p>{{this.street}} {{this.number}}</p>
+            <p>({{this.postal_code}}) {{this.city}}</p>
+            <p>{{this.location}}</p>
+            <p>11-34540195</p>
+            {{/with}}
+            {{/if}}
+
+            {{#unless billingAddress.street}}
+            <p class="user-info__message">No hay información cargada</p>
+            {{/unless}}
+        </div>
+
+        <div class="user-info__article-address">
+            <h5>Dirección de envío</h5>
+            {{#if shippingAddress.street}}
+            {{#with shippingAddress}}
+            <p>{{userData.name}} {{userData.lastname}}</p>
+            <p>{{this.street}} {{this.number}}</p>
+            <p>({{this.postal_code}}) {{this.city}}</p>
+            <p>{{this.location}}</p>
+            <p>11-34540195</p>
+            {{/with}}
+            {{/if}}
+
+            {{#unless shippingAddress.street}}
+            <p class="user-info__message">No hay información cargada</p>
+            {{/unless}}
+
+        </div>
+
+        {{!-- <div class="user-info__article-address">
+            <h5>Dirección de facturación</h5>
+            <p>{{userData.name}} {{userData.lastname}}</p>
+            <p>Calle Falsa 123</p>
+            <p>(1744) Moreno</p>
+            <p>Buenos Aires</p>
+            <p>11-34540195</p>
+        </div>
+
+        <div class="user-info__article-address">
+            <h5>Dirección de envío</h5>
+            <p>{{userData.name}} {{userData.lastname}}</p>
+            <p>Calle Falsa 123</p>
+            <p>(1744) Moreno</p>
+            <p>Buenos Aires</p>
+            <p>11-34540195</p>
+        </div> --}}
+
+
+
+        {{!-- <div>
+            <h1>PRUEBA</h1>
+            {{#with userData}}
+                {{name}}
+                {{email}}
+                {{lastname}}
+            {{/with}}
+        </div> --}}
+
+    </article>
+
+    <a class="user-info__button" href="/user/profile-edit"><i class="fas fa-user-edit"></i></a>
+</div>

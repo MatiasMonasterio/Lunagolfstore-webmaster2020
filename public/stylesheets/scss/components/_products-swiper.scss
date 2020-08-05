@@ -1,0 +1,45 @@
+.products-group{
+    padding: 20px 0;
+
+    &__title{
+        color: $graydark;
+        margin-bottom: 25px;
+        font-weight: 500;
+    }
+
+    @include mobile{
+        width: 100vw;
+        overflow: hidden;
+
+        &__title{
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 25px;
+        }
+
+        &__container{
+            width: 95%;
+            padding: 0 40px;
+        }
+
+    }
+
+    @include laptop{
+        &__wrapper{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr) !important;
+            gap: 8px;
+        }
+
+        &__slide{
+            flex-shrink: initial;
+        }
+    }
+
+    @include desktop{
+        &__wrapper{
+            gap: 15px
+        }
+    }
+
+}

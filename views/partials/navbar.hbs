@@ -1,0 +1,178 @@
+<nav class="navbar" id="navbar">
+    {{autenticated}}
+    <div class="navbar__desktop desktop container">
+        <div class="desktop__brand">
+            <a href="index.html" class="desktop__brand-link"><img src="/images/logo-principal.svg" alt="logo" class="desktop__brand-img"></a>
+        </div>  <!-- desktop__BRAND -->
+
+        <ul class="desktop__list">
+            {{#if home}}<li class="desktop__list-item"><a href="/" class="desktop__list-link desktop__list-link-active">Inicio</a></li>{{/if}}
+            {{#unless home}}<li class="desktop__list-item"><a href="/" class="desktop__list-link">Inicio</a></li>{{/unless}}
+
+            {{#if about}}<li class="desktop__list-item"><a href="/about" class="desktop__list-link desktop__list-link-active">Quienes Somos</a></li>{{/if}}
+            {{#unless about}}<li class="desktop__list-item"><a href="/about" class="desktop__list-link">Quienes Somos</a></li>{{/unless}}
+
+            {{#if products}}<li class="desktop__list-item"><a href="/products" class="desktop__list-link desktop__list-link-active">Productos</a></li>{{/if}}
+            {{#unless products}}<li class="desktop__list-item"><a href="/products" class="desktop__list-link">Productos</a></li>{{/unless}}
+
+            {{#if contact}}<li class="desktop__list-item"><a href="/contact" class="desktop__list-link desktop__list-link-active">Contacto</a></li>{{/if}}
+            {{#unless contact}}<li class="desktop__list-item"><a href="/contact" class="desktop__list-link">Contacto</a></li>{{/unless}}
+        </ul>   <!-- desktop__LIST -->
+
+        <div class="desktop__noname">
+            <form class="desktop__noname-button search" id="searchForm" method="GET" action="/search">
+                <input type="search" class="search-input" name="q" id="searchInput" autocomplete="off">
+                <button class="desktop__icons-button search-submit" type="button" id="searchButton"><i class="desktop__icons-i fas fa-search"></i></button>
+            </form> <!-- SEARCH -->
+
+            <div class="desktop__noname-button buy" id="cartContainer">
+                <button class="desktop__icons-button"><i class="desktop__icons-i fas fa-shopping-cart"></i></button>
+                <div class="desktop__noname-button__count">
+                    <p id="accountant"></p>
+                </div>
+                <div class="buy__dropdown desktop__noname-dropdown">
+                    <ul class="buy__dropdown-list" id="cartList">
+                        {{!-- <li class="buy__dropdown-item product-buy">
+                            <img src="/images/jic81_zoom_d1-14809de521d974942315706555331195-1024-1024.jpg" alt="" class="product-buy__image">
+                            <div class="product-buy__body">
+                                <h4 class="product-buy__body-title">taylormade | putter mini spider cooper</h4>
+                                <p class="product-buy__body-price">$ 24.500</p>
+                            </div>
+                            <select name="" id="" class="product-buy__quantity">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                            </select>
+
+                            <button class="product-buy__button"><i class="fas fa-trash product-buy__button-icon"></i></button>
+                        </li>
+
+                        <li class="buy__dropdown-item product-buy">
+                            <img src="/images/jic81_zoom_d1-14809de521d974942315706555331195-1024-1024.jpg" alt="" class="product-buy__image">
+                            <div class="product-buy__body">
+                                <h4 class="product-buy__body-title">taylormade | putter mini spider cooper</h4>
+                                <p class="product-buy__body-price">$ 24.500</p>
+                            </div>
+                            <select name="" id="" class="product-buy__quantity">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                            </select>
+
+                            <button class="product-buy__button"><i class="fas fa-trash product-buy__button-icon"></i></button>
+                        </li>
+
+                        <li class="buy__dropdown-item product-buy">
+                            <img src="/images/jic81_zoom_d1-14809de521d974942315706555331195-1024-1024.jpg" alt="" class="product-buy__image">
+                            <div class="product-buy__body">
+                                <h4 class="product-buy__body-title">taylormade | putter mini spider cooper</h4>
+                                <p class="product-buy__body-price">$ 24.500</p>
+                            </div>
+                            <select name="" id="" class="product-buy__quantity">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                            </select>
+
+                            <button class="product-buy__button"><i class="fas fa-trash product-buy__button-icon"></i></button>
+                        </li> --}}
+                    </ul>
+                    <a class="buy__dropdown-button" href="/user/cart">Continuar Compra</a>
+
+                    <div class="no-product-cart-alert">
+                        <i class="fas fa-info-circle no-product-cart-alert__icon"></i>
+                        <p>No hay productos cargados</p>
+                    </div>
+                </div>  <!-- DESKTOP__NONAME-DROPDOW -->
+            </div>  <!-- BUY -->
+
+            <div class="desktop__noname-button user">
+                <button class="desktop__icons-button"><i class="desktop__icons-i fas fa-user"></i></button>
+
+                <div class="user__dropdown desktop__noname-dropdown">
+
+                    <header class="user__dropdown-header">
+                        <i class="fas fa-user user__dropdown-header__icon"></i>
+                        <div class="user__dropdown-header__body">
+                            <p class="user__dropdown-header__name">Matías Monasterio</p>
+                            <a href="/user/logout" class="user__dropdown-header__link">Cerrar Seccion</a>
+                        </div>
+                        
+                    </header>
+
+                    <nav class="user__dropdown-nav">
+                        <ul class="user__dropdown-nav__list">
+                            <li class="user__dropdown-nav__item"><a href="/user/cart" class="user__dropdown-nav__link">Carrito</a></li>
+                            <li class="user__dropdown-nav__item"><a href="/user/purchases" class="user__dropdown-nav__link">Mis compras</a></li>
+                            <li class="user__dropdown-nav__item"><a href="/user/favorite" class="user__dropdown-nav__link">Favoritos</a></li>
+                            <li class="user__dropdown-nav__item"><a href="/user/history-search" class="user__dropdown-nav__link">Historial</a></li>
+                            <li class="user__dropdown-nav__item"><a href="/user/profile" class="user__dropdown-nav__link">Perfil</a></li>
+                        </ul>
+                    </nav>
+                </div>  <!-- DESKTOP__NONAME-DROPDOW -->
+            </div>  <!-- USER -->
+        </div>  <!-- DESKTOP__NONAME -->
+    </div>  <!-- NAVBAR DESKTOP -->
+
+
+
+    <div class="navbar__mobile">
+        <div class="navbar-mobile">
+            <button class="navbar-mobile__button" id="menuShow"><i class="fas fa-bars"></i></button>
+
+            <form class="navbar-mobile__form" method="GET" action="/search">
+                <input type="search" name="q" class="navbar-mobile__form-input" autocomplete="off" placeholder="Buscar en Luna Golf">
+                <button type="button" class="navbar-mobile__form-submit"><i class="fas fa-search"></i></button>
+            </form> <!-- navbar-mobile__form -->
+    
+            <button class="navbar-mobile__button">
+                <i class="fas fa-shopping-cart"></i>
+
+                <div class="desktop__noname-button__count navbar-mobile__button__count">
+                    <p id="accountantMobile"></p>
+                </div>
+                </button>
+        </div>  <!-- NAVBAR-MOBILE -->
+
+        <div class="sidenav" id="sidenav">
+            <div class="sidenav-container">
+                <div class="sidenav__header">
+                    <img src="/images/logoResponsive.png" alt="logo" class="sidenav__header-img">
+                </div>  <!-- disenav__header -->
+
+                <ul class="sidenav__list">
+                    <li class="sidenav__list-item"><a href="/" class="sidenav__list-link">Inicio</a></li>
+                    <li class="sidenav__list-item"><a href="/about" class="sidenav__list-link">Quienes Somos</a></li>
+                    <li class="sidenav__list-item"><a href="/products" class="sidenav__list-link">Productos</a></li>
+                    <li class="sidenav__list-item"><a href="/contact" class="sidenav__list-link">Contacto</a></li>
+                </ul>   <!-- sidenav_list -->
+
+                <div class="sidenav__user user-menu">
+                    <div class="user-menu__header">
+                        <i class="fas fa-user user-menu__header-icon"></i>
+
+                        <div class="user-menu__header-info user-body">
+                            <p class="user-body__name">Matias Monasterio</p>
+                            <button class="user-body__button" id="userMenu"><i class="fas fa-chevron-up user-body__button-icon"></i></button>
+                            <a href="#" class="user-body__link">Cerrar sesion</a>
+                        </div>  <!-- user-menu__header-info -->
+                    </div>  <!-- user-menu__header -->
+
+                    <ul class="user-menu__list">
+                        <li class="user-menu__list-item"><a href="/user/cart" class="user-menu__list-link">Carrito</a></li>
+                        <li class="user-menu__list-item"><a href="/user/purchases" class="user-menu__list-link">Mis Compras</a></li>
+                        <li class="user-menu__list-item"><a href="/user/favorite" class="user-menu__list-link">Favoritos</a></li>
+                        <li class="user-menu__list-item"><a href="/user/history-search" class="user-menu__list-link">Historial</a></li>
+                        <li class="user-menu__list-item"><a href="/user/profile" class="user-menu__list-link">Perfil</a></li>
+                    </ul>   <!-- user-menu__list -->
+
+                </div>  <!-- USER-MENU sidenav_user -->
+            </div>  <!-- sidenav-container -->
+        </div>  <!-- SIDENAV -->
+
+
+    </div>  <!-- NAVBAR MOBILE -->
+</nav>  <!-- NAVBAR -->

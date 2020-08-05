@@ -1,0 +1,175 @@
+.us-header{
+    position: relative;
+
+    &::after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url('../images/headers/nosotros-REDUCED-WEB.webp');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: brightness(0.7);
+        z-index: 1;
+    }
+
+    &__title{
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.us-main{
+    margin: 80px auto;
+
+    &__article{
+        margin-bottom: 120px ;
+
+        &-title{
+            margin-bottom: 25px;
+            font-weight: 500;
+            color: $graydark;
+            text-align: center;
+        }
+    }
+}
+
+.us-info{
+    display: flex;
+    color: $graydark;
+    text-align: center;
+
+    &__text{
+        max-width: 500px;
+    }
+
+    &__number{
+        margin: 0 auto;
+        align-self: center;
+
+        &-p{
+            margin-bottom: 20px;
+            text-transform: capitalize;
+        }
+
+        &-span{
+            font-size: 1.5rem;
+            line-height: 4.5rem;
+            font-weight: 900;
+            display: inline-block;
+            text-align: center;
+            margin-right: 5px;
+            height: 4.5rem;
+            width: 4.5rem;
+            border-radius: 100px;
+            background-color: $greendark;
+            color: $white;
+        }
+    }
+
+    @include mobile{
+        flex-direction: column;
+
+        &__text{
+            margin-bottom: 30px;
+        }
+
+        &__number{
+            &-p{
+                display: inline-block;
+                font-size: .85rem;
+            }
+    
+            &-span{
+                font-size: .9rem !important;
+                line-height: 2.6rem;
+                width: 2.6rem;
+                height: 2.6rem;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.testimonial{
+    display: grid;
+    grid-template-columns: repeat( 4, 1fr );
+    gap: 20px;
+
+    &__title{
+        grid-column: 1/5;
+        margin-bottom: 60px;
+    }
+
+    @include tablet{
+        grid-template-columns: repeat( 2, 1fr );
+        gap: 40px;
+        
+        &__title{
+            grid-column: 1/3;
+        }
+    }
+
+    @include mobile{
+        grid-template-columns: 1fr;
+        gap: 40px;
+        &__title{
+            grid-column: 1/2;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.testimonial-card{
+    border: 1px solid $white;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    position: relative;
+    padding: 50px 10px;
+    text-align: center;
+    transition: transform .25s;
+
+    &__image{
+        width: 80px;
+        height: 80px;
+        border-radius: 100px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: -30px;
+    }
+
+    &__name{
+        margin-top: 20px;
+        margin-bottom: 40px;
+        color: $greenmedium;
+    }
+
+    &__text{
+        position: relative;
+        &::after{
+            content: '\f10e';
+            position: absolute;
+            display: block;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 600;
+            color: $greenmedium;
+            right: 0;
+            font-size: 1.5rem;
+        }
+    }
+
+    &:hover{
+        transform: translateY(-8px);
+    }
+
+    @include mobile{
+        &__name{
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -1,0 +1,474 @@
+.products-header{
+    background-color: $greendark;
+    height: calc(63px + 70px);
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    &__title{
+        text-align: right;
+        margin-bottom: 10px;
+    }
+}
+
+.products-nav{
+    padding: 15px 0;
+    box-shadow: 
+        0 2px 5px 0 rgba(0,0,0,0.16), 
+        0 2px 10px 0 rgba(0,0,0,0.12);
+
+    &__button-mobile{
+        display: none;
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        background-color: $white;
+
+        &__icon{
+            position: relative;
+            color: $graydark;
+            margin-left: 3px;
+            top: 2px;
+            transition: transform .15s;
+        }
+    }
+
+    &__list{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__item{
+        list-style: none;
+    }
+
+    &__link{
+        color: inherit;
+        text-decoration: none;
+        position: relative;
+
+        @include laptop{
+            &::after{
+                content: '\f0d8';
+                font-family: "Font Awesome 5 Free";
+                font-weight: 600;
+                color: $greendark;
+                position: absolute;
+                top: 15px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                text-align: center;
+                font-size: 1.7rem;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(5px);
+                transition: transform .1s, opacity .1s;
+            }
+    
+            &:hover{
+                &.products-nav__link::after{
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+                }
+            }
+    
+            &-active{
+                &::after{
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+                    color: $greenmedium;
+                }
+            }
+        }
+
+        
+    }
+
+    @include mobile{
+        padding: 0;
+        height: auto;
+
+        &__button-mobile{
+            display: block;
+        }
+
+        &__list{
+            position: absolute;
+            background-color: $white;
+            transform: scaleY(0);
+            transform-origin: top;
+            flex-direction: column;
+            width: 100%;
+            transition: transform .15s;
+            z-index: 1;
+            box-shadow: 0 11px 13px -4px rgba(0, 0, 0, 0.4);        
+        }
+
+        &__item{
+            border-top: 1px solid $graylight;
+            font-size: .95rem;
+            position: relative;
+
+        }
+
+        &__link{
+            padding: 15px 30px;
+            display: block;
+
+            &-active{
+                background-color: $greenmedium;
+                color: $white;
+                border-bottom: 1px solid $greenmedium;
+                &::before{
+                    content: '\f0da';
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 600;
+                    position: absolute;
+                    display: block;
+                    left: 14px;
+                    top: 16px;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+.show-categories{
+    @include mobile{
+        .products-nav__button-mobile__icon{
+            transform: rotate(180deg);
+        }
+
+        .products-nav__list{
+            transform: scaleY(1);
+        }
+    }
+}
+
+.products-main{
+    display: flex;
+    margin: 60px auto;
+
+    &__filters{
+        min-width: 170px;
+        padding-right: 30px;
+    }
+
+    &__filter-mobile{
+        display: none;
+
+        @include mobile{
+            display: block;
+        }
+    }
+
+    &__list{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &-container{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        &-form{
+            margin-left: auto;
+        }
+
+        &-select{
+            padding: 0 8px;
+            display: inline-block;
+            margin-left: auto;
+            border: 1px solid $graylight;
+            margin-bottom: 20px;
+        }
+
+        &-button{
+            display: inline-block;
+            font-size: .9rem;
+            margin: 0 auto;
+            padding: 10px 30px;
+            background-color: #2B806A;
+            color: #f8f8f8;
+            border-radius: 50px;
+            box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        @include tablet{
+            &-container{
+                grid-template-columns: repeat( 3, 1fr );
+            }            
+        }
+
+        @include mobile{
+
+            &-container{
+                grid-template-columns: repeat( 2, 1fr );
+                gap: 15px;
+            }
+
+            &-select{
+                display: none;
+            }
+        }
+    }
+
+    @include mobile{
+        margin: 35px auto;
+    }
+}
+
+.select-mobile{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $white;
+    z-index: 11;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform .15s;
+
+    &__close-button{
+        font-size: 1.25rem;
+        padding: 25px;
+        color: $greenmedium;
+        margin-bottom: 25px;
+    }
+
+    &__list{
+        list-style: none;
+    }
+
+    &__item{
+        border-top: 1px solid $graylight;
+        position: relative;
+        
+        &:last-child{
+            border-bottom: 1px solid $graylight;
+        }
+
+        &:first-child{
+            &::after{
+                content: '';
+                display: block;
+                height: 100%;
+                width: 7px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-color: $greenmedium;
+            }
+        }
+    }
+
+    &__link{
+        color: $graydark;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 15px;
+        display: block;
+    }
+}
+
+.select-mobile-show{
+    transform: scaleY(1);
+}
+
+.card{
+    width: 100% !important;
+    height: auto !important;
+}
+
+.filter{
+    background-color: #f8f8f8;
+
+    &__tooltips{
+        background-color: $greenmedium;
+        color: $white;
+        border-radius: 20px;
+        padding: 4px 10px;
+        cursor: pointer;
+        font-size: .9rem;
+        display: inline-block;
+        margin-right: 3px;
+        margin-bottom: 3px;
+
+        &-icon{
+            font-size: .6rem;
+        }
+
+        &:hover{
+            background-color: #348d75;
+        }
+    }
+
+    &__close-button{
+        display: none;
+        margin-bottom: 25px;
+        font-size: 1.2rem;
+        color: $greenmedium;
+    }
+
+    &__section{
+        margin-bottom: 25px;
+
+        &-title{
+            text-transform: uppercase;
+            padding: 5px 0;
+            margin-bottom: 10px;
+
+            &-icon{
+                display: none;
+                color: $greenlight;
+                position: relative;
+                font-size: .9rem;
+                top: -2px;
+                transition: transform .12s;
+                margin-left: 2px;
+            }
+        }
+
+        &-list{
+            @include laptop{
+                max-height: calc( (17px + 5px) * 7 );
+                overflow: hidden;
+            }
+        }
+
+        &-item{
+            list-style: none;
+            margin-bottom: 5px;
+            text-transform: capitalize;
+        }
+
+        &-link{
+            color: inherit;
+            text-decoration: none;
+            font-size: .9rem;
+
+            &:hover{
+                color: $greenlight;
+            }
+        }
+    }
+
+    &__button{
+        margin-top: 7px;
+        font-size: .9rem;
+        font-weight: 600;
+        color: $greenlight;
+        display: none;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    @include mobile{
+        background-color: $white;
+        position: fixed;
+        width: 100vw;
+        overflow-y: scroll;
+        height: 100vh;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        padding: 25px;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform .15s;
+
+        &__close-button{
+            display: block;
+        }
+
+        &__section{
+            margin: 0;
+            border-bottom: 1px solid $graylight;
+
+            &-title{
+                padding: 15px 0;
+                font-size: 1.1rem;
+                margin: 0;
+                border-bottom: none;
+
+                &-icon{
+                    display: inline-block;
+                }
+            }
+
+            &-item{
+                margin-bottom: 8px;
+            }
+
+            &-list{
+                height: 0;
+                visibility: hidden;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.show-button-filter{
+    display: block;
+}
+
+.show-all-filteritems{
+    max-height: fit-content;
+    max-height: -moz-fit-content;
+    overflow-anchor: none;
+    // overflow: visible;
+}
+
+.filter-show{
+    @include mobile{
+        transform: scaleY(1);
+    }
+}
+
+.show-list{
+    .filter__section-list{
+        height: fit-content;
+        visibility: visible;
+    }
+
+    .filter__section-title-icon{
+        transform: rotate(180deg);
+    }
+}
+
+.filter-mobile{
+    margin-left: auto;
+    margin-bottom: 20px;
+    color: $graydark;
+    font-size: .95rem;
+
+    &__button{
+        display: inline-block;
+        padding: 0 10px;
+        color: inherit;
+        
+        &:first-child{
+            border-right: 1px solid $graylight;
+        }
+
+        &:last-child{
+            padding-right: 0;
+        }
+    }
+
+    &__icon{
+        margin: 0 2px;
+        color: inherit;
+    }
+}

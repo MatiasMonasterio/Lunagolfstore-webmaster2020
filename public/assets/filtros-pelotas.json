@@ -1,0 +1,39 @@
+[
+    {
+        "title": "Color",
+        "items": [
+            "Azul",
+            "Amarillo",
+            "Blanco",
+            "Naranja",
+            "Rosa",
+            "Verde"
+        ]
+    },
+    {
+        "title": "Formato",
+        "items": [
+            "CaJa X 12",
+            "Caja X 24",
+            "Tubo X 3",
+            "Otros"
+        ]
+    },
+    {
+        "title": "Marca",
+        "items": [
+            "Bridgestone",
+            "Callaway",
+            "Taylormade",
+            "Titleist",
+            "Wilson staff"
+        ]
+    },
+    {
+        "title": "Modelo",
+        "items": [
+            "Amarillo",
+            "Blanco"
+        ]
+    }
+]

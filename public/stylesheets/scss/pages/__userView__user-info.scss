@@ -1,0 +1,41 @@
+.user-info{
+    display: flex;
+    flex-direction: column;
+    color: $graydark;
+
+    &__title{
+        display: block;
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+    }
+
+    &__article{
+        margin-bottom: 30px;
+
+        &-title{
+            margin-bottom: 10px;
+            border-bottom: 1px solid $graylight;
+        }
+
+        &-address{
+            margin-bottom: 20px;
+        }
+    }
+
+    &__button{
+        padding: 10px 25px;
+        margin-top: 40px;
+        background-color: $greenmedium;
+        color: $white;
+        border-radius: 50px;
+        box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.2);
+        transition: background-color .12s;
+        text-decoration: none;
+        margin-left: auto;
+        transition: background-color .15s;
+    }
+
+    &__message{
+        margin-top: 5px;
+    }
+}

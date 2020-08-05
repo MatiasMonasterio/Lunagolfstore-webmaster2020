@@ -1,0 +1,133 @@
+<header class="home-header">
+    <h1 class="home-header__title">Luna Golf Store</h1>
+    <p class="home-header__description container">
+        lorem ipsum dolor sit amet, consecteur adipiscing elit. Integer et erat eget nisl vehicula convallis nec ut sem.
+    </p>
+</header>   <!-- home-header -->
+
+
+<main class="home-main">
+    <article class="home-main__article categories container">
+        <!-- <h2 class="categories-title home-main-titles">Nuestras Categorias</h2> -->
+
+        <a href="../products/palos-sets" class="categories__categorie">
+            <!-- <i class="fas fa-golf-ball categories__categorie-icon"></i> -->
+            <i class="icon-svg palo-icon categories__categorie-icon"></i>
+            <h3 class="categories__categorie-title">Palos y Sets</h3>
+        </a>    <!-- categories__categorie -->
+
+        <a href="../products/pelotas" class="categories__categorie">
+            <i class="fas fa-golf-ball categories__categorie-icon"></i>
+            <h3 class="categories__categorie-title">Pelotas</h3>
+        </a>    <!-- categories__categorie -->
+
+        <a href="../products/bolsos" class="categories__categorie">
+            <!-- <i class="fas fa-golf-ball categories__categorie-icon"></i> -->
+            <i class="icon-svg bolso-icon categories__categorie-icon"></i>
+            <h3 class="categories__categorie-title">Bolsos</h3>
+        </a>    <!-- categories__categorie -->
+
+        <a href="../products/carros" class="categories__categorie">
+            <!-- <i class="fas fa-golf-ball categories__categorie-icon"></i> -->
+            <i class="icon-svg carro-icon categories__categorie-icon"></i>
+            <h3 class="categories__categorie-title">Carros</h3>
+        </a>    <!-- categories__categorie -->
+
+        <a href="../products/ropa-accesorios" class="categories__categorie">
+            <i class="fas fa-tshirt categories__categorie-icon"></i>
+            <h3 class="categories__categorie-title">Ropa y Accesorios</h3>
+        </a>    <!-- categories__categorie -->
+
+    </article>  <!-- CATEGORIES -->
+
+    <article class="products-group container home-main__article featured-products">
+        <h2 class="products-group__title">Productos Destacados</h2>
+        <div class="product-swiper products-group__container">
+            <div class="swiper-wrapper products-group__wrapper">
+                {{#each productos}}
+                    {{>productCard}}
+                {{/each}}
+            </div>  <!-- swiper-wrapper -->
+        </div>  <!-- product-swiper -->
+    </article>  <!-- featured-products home-main products-group -->
+
+    <article class="products-group container home-main__article ofertas-products">
+        <h2 class="products-group__title">Ofertas</h2>
+        <div class="product-swiper products-group__container">
+            <div class="swiper-wrapper products-group__wrapper">
+                {{#each productos}}
+                    {{>productCard}}
+                {{/each}}
+            </div> <!-- product-wrapper -->
+        </div> <!-- product-swiper -->
+    </article> <!-- product-group ofertas-products -->
+
+    <article class="products-group container home-main__article recommendation-product">
+        <h2 class="products-group__title">Productos Recomendados</h2>
+        <div class="product-swiper products-group__container">
+            <div class="swiper-wrapper products-group__wrapper">
+                {{#each productos}}
+                    {{>productCard}}
+                {{/each}}
+            </div>  <!-- swiper-wrapper -->
+        </div>  <!-- product-swiper -->
+    </article>  <!-- recommendation-product -->
+    
+    
+    <article class="hoome-main__article brands">
+
+        <div class="swiper-container brands-swiper container">
+            <div class="swiper-wrapper brands-swiper__wrapper">
+                <div class="swiper-slide brands-swiper__slide">
+                    <div class="brands__image-container"><img src="images/marcas/Adidas.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/aldila-shafts-logo-retina1 (Custom).png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/Arccos_Logo_stacked (Custom).png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/Ashworth (Custom).jpg" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/ben-hogan (Custom).png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/bridgestone30_2048x.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/Callaway_logo_650_large_2048x1.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/cobra_650_large_27640a7d-516a-49da-be7a-4ac4e5c3f5f6_2048x.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/footjoy.jpg" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/gp_logo_main (Custom).jpg" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/grafalloy-logo1 (Custom).jpg" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/lampkim (Custom)1.jpg" alt="" class="brands__image-container-img"></div>
+                </div>
+                <div class="swiper-slide brands-swiper__slide">
+                    <div class="brands__image-container"><img src="images/marcas/logocadyteck (Custom)1.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/logochamp (Custom).png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/nike_principal (Custom).jpg" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/ODDYSEY.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/orlimar (Custom).jpg" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/Ping-logo (Custom).png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/Pinnacle_Golf_logo (Custom).png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/Powakaddy_Branding_Large.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/precept (Custom).jpg" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/PUMA_Golf_LogoBlack (Custom).jpg" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/sporkies (Custom).png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/SUN_MOUNTAIN_LOGO_ORANGE (Custom).jpg" alt="" class="brands__image-container-img"></div>
+
+                </div>
+
+                <div class="swiper-slide brands-swiper__slide">
+                    <div class="brands__image-container"><img src="images/marcas/superstroke.jpg" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/taylormade_650_large_2048x.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/tifosi-sunglasses-52 (Custom).jpg" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/UST (Custom).png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/vector-titleist-logo_650_large_2048x.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/Wilson.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/winn_logo_large_blk (Custom).png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/Callaway_logo_650_large_2048x1.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/cobra_650_large_27640a7d-516a-49da-be7a-4ac4e5c3f5f6_2048x.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/ODDYSEY.png" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/orlimar (Custom).jpg" alt="" class="brands__image-container-img"></div>
+                    <div class="brands__image-container"><img src="images/marcas/Arccos_Logo_stacked (Custom).png" alt="" class="brands__image-container-img"></div>
+                </div>
+            </div>
+
+            <div class="swiper-button-next brands-swiper__button-next"></div>
+            <div class="swiper-button-prev brands-swiper__button-prev"></div>
+
+        </div>
+    </article>  <!-- hoome-main__article brands -->
+
+</main> <!-- HOMA-MAIN -->

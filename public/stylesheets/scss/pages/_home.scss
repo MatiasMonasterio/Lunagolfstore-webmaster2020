@@ -1,0 +1,242 @@
+.home-header{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    background-color: $greenmedium;
+    height: 100vh;
+
+    &__title,
+    &__description{
+        position: relative;
+        z-index: 1;
+    }
+
+    &__title{
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+    }
+
+    &__description{
+        font-size: 1rem;
+        max-width: 500px;
+        text-align: center;
+    }
+
+    @include mobile{
+        &__title{
+            font-size: 2rem;
+        }
+    }
+
+    @media (min-width: 767px) and (orientation: portrait){
+        height: 35vh;
+    }
+}
+
+.home-main{
+    color: $graydark;
+    margin: 200px auto;
+
+    &-titles{
+        width: 100%;
+        margin-bottom: 25px;
+        font-weight: 500;
+        display: block;
+    }
+
+    &__article{
+        margin-bottom: 100px;
+    }
+
+    @include tablet{
+        margin: 100px auto;  
+    }
+}
+
+.categories{
+    color: $graydark;
+    display: grid;
+    grid-template-columns: repeat( 5, 1fr );
+    gap: 1px;
+    justify-content: center;
+    align-items: center;
+
+    @include tablet{
+        grid-template-columns: repeat( 3, 1fr );
+    }
+
+
+
+    &__categorie{
+        width: 100%;
+        height: calc( (95vw ) / 5 );
+        background-color: $graylight;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: background-color .1s, color .1s;
+        color: $graydark;
+        text-decoration: none;
+        position: relative;
+        border-radius: 3px;
+
+        &-icon{
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        &-title{
+            font-weight: 400;
+            font-size: 1rem;
+        }
+
+        &-image{
+            position: absolute;
+            object-fit: cover;
+            object-position: left;
+            right: 0px;
+            width: 100%;
+        }
+
+        &:hover{
+            color: $white;
+            background-color: $greenmedium;
+
+            .icon-svg::before{
+                filter: invert(89%);
+            }
+        }
+    }
+
+    @include mobile{
+        grid-template-columns: repeat(2, 1fr);
+
+        &__categorie{
+            height: 200px;
+
+            &:last-child{
+                grid-column: 1/3;
+            }
+        }
+    }
+}
+
+.carrousel{
+    display: flex;
+    justify-content: space-between;
+}
+
+.recommendation-product{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &__title{
+        width: 100%;
+    }
+}
+
+.brands{
+    width: 100%;
+    overflow: hidden;
+
+    &__carrousel{
+        display: grid;
+    }
+
+    &__image-container{
+        align-self: center;
+
+        &-img{
+            width: 100%;
+        }
+    }
+}
+
+.brands-swiper{
+    overflow: visible;
+
+    &__slide{
+        display: grid;
+        grid-template-columns: repeat(6,minmax(auto, 130px));
+        justify-content: space-between;
+        gap: 20px;
+
+        @include mobile{
+        grid-template-columns: repeat( 2, minmax( auto, 110px) );
+        justify-content: space-around;
+        gap: 20px 30px;
+        }
+
+        @include xs-mobile{
+            grid-template-columns: repeat( 2, minmax( auto, 90px) );
+        }
+    }
+
+    &__button{
+        color: $graydark;
+
+        &-next::after,
+        &-prev::after{
+            display: block;
+            position: absolute;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: $graydark;
+
+            &:hover{
+                color: $greenmedium !important;
+            }
+        }
+
+        &-next{
+            right: -40px;
+
+            &::after{
+                content: '\f054';
+            }
+
+            @include mobile{
+                right: -20px;
+            }
+        }
+
+        &-prev{
+            left: -40px;
+
+            &::after{
+                content: '\f053';
+            }
+
+            @include mobile{
+                left: -20px;
+            }
+        }
+    }
+}
+
+.brands-swiper{
+    .swiper-slide-duplicate,
+    .swiper-slide{
+        opacity: 0;
+        transition: opacity .1s;
+    }
+    .swiper-slide-duplicate-active,
+    .swiper-slide-active{
+        opacity: 1;
+        transition: opacity .4s;
+        transition-timing-function: ease-in;
+    }
+}
+
+
+
+
+
+
+

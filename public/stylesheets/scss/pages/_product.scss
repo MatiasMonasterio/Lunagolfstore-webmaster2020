@@ -1,0 +1,398 @@
+.product-header{
+    background-color: $greendark;
+    height: calc(63px + 70px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+
+    &__title{
+        color: $white;
+        margin: 0;
+        padding: 15px 0;
+        text-transform: uppercase;
+    }
+
+    @include mobile{
+        height: calc(63px + 50px); 
+    }
+
+}
+
+.product-main{
+    margin: 60px auto 100px auto;
+    color: $graydark;
+
+    // &__related{
+    //     position: relative;
+    //     padding: 80px 0;
+
+    //     &::after{
+    //         content: '';
+    //         display: block;
+    //         top: 0;
+    //         left: 0;
+    //         width: 100%;
+    //         height: 100%;
+    //         background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwI6DcNsJle9lek0JkvZtaebozqkaokqbIUQ&usqp=CAU');
+    //         background-attachment: fixed;
+    //         background-repeat: no-repeat;
+    //         background-position: center;
+    //         background-size: cover;
+    //         filter: blur(5px) brightness(.6);
+    //         position: absolute;
+    //         z-index: 0;
+    //     }
+    // }
+}
+
+.product-block{
+    display: flex;
+    margin-bottom: 100px;
+
+    &__image-container{
+        width: 50%;
+        margin-right: 60px;
+        position: relative;
+
+        &-img{
+            width: 100%;
+            top: 0;
+            left: 0;
+            max-height: 100%;
+            position: absolute;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            object-fit: contain;
+            background-color: #ffffff;
+        }
+
+        &-icon{
+            position: absolute;
+            color: $greenmedium;
+            font-size: 2.1rem;
+            bottom: 35px;
+            right: 35px;
+            cursor: pointer;
+            transition: transform .15s;
+
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+
+
+        &::after{
+            content: '';
+            display: block;
+            top: 0;
+            left: 0;
+            padding-bottom: 100%;
+        }
+    }
+
+    &__info{
+        width: 50%;
+        align-self: center;
+
+        &-title{
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin: 0;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        &-price{
+            color: $greenlight;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        &-fees{
+            display: inline-block;
+            font-size: 1rem;
+
+            &__btn{
+                margin-left: 5px;
+                color: $greenlight;
+                font-weight: 500;
+                text-decoration: underline;
+                font-size: .9rem;
+                margin-bottom: 40px;
+            }
+        }
+
+        &-description{
+        
+            &-xml{
+                white-space: pre-wrap;
+                font-family: 'Lora', serif;
+                margin-bottom: 50px;
+            }
+        }
+
+        &-button{
+            margin-bottom: 5px;
+            padding: 10px 40px;
+            display: inline-block;
+            background-color: $greenmedium;
+            color: #f8f8f8;
+            font-size: 1rem;
+            border-radius: 50px;
+            box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.2);
+            transition: background-color .12s;
+        }
+    }
+
+    @include mobile{
+        flex-direction: column;
+
+        &__image-container,
+        &__info{
+            width: 100%;
+            text-align: center;
+            padding-right: 0;
+        }
+
+        &__info{
+            &-price{
+                margin-bottom: 15px;
+            }
+            &-fees{
+                display: block;
+            }
+        }
+
+        &__image-container{
+            margin-bottom: 25px;
+        }
+    }
+}
+
+.fav-exist{
+    .product-block__image-container-icon-2{
+        &::before{
+            content: '\f004';
+            font-weight: 600;
+        }
+    }
+}
+
+.questions{
+    margin-bottom: 100px;
+
+    &__title{
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+        font-weight: 400;
+    }
+
+    &__container{
+        padding: 15px 20px;
+        display: flex;
+        border-bottom: 1px solid $graylight;
+
+        &-img{
+            width: 60px;
+            margin-right: 20px;
+            border-radius: 100px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            align-self: center;
+            object-fit: cover;
+        }
+
+        &-body{
+            align-self: center;
+        }
+
+        &-name{
+            font-size: .95rem;
+            margin-bottom: 5px;
+        }
+
+        &-text{
+            font-size: .92rem;
+            max-width: 45vw;
+        }
+
+    }
+
+    &__form{
+        margin: 30px 0;
+        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        &-input{
+            width: 100%;
+            border: none;
+            line-height: 1;
+            box-shadow: inset 3px 8px 5px -6px rgba(0, 0, 0, 0.2), inset -7px -10px 1px -7px #ffffff;
+            background-color: #f5f4f4;
+            border-radius: 50px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+
+        &-submit{
+            border: none;
+            cursor: pointer;
+            padding: 10px 30px;
+            display: block;
+            background-color: $white;
+            color: $greenmedium;
+            border: 1px solid $greenmedium;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.2);
+            font-size: .85rem;
+        }
+    }
+
+    @include mobile{
+        &__container{
+            padding: 15px 0;
+
+            &-img{
+                margin-right: 15px;
+            }
+
+            &-text{
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.related{
+    display: grid;
+    grid-template-columns: repeat( 5, minmax( 120px, 1fr) );
+    gap: 15px 30px;
+    position: relative;
+    z-index: 1;
+
+    &__title{
+        grid-column: 1/6;
+        color: $white;
+    }
+}
+
+.fees-modal{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 10;
+    padding: 20px;
+    visibility: hidden;
+    transition: background-color .2s, visibility .2s;
+    transition-delay: .1s;
+
+    &-container{
+        width: 80%;
+        display: block;
+        margin: 20px auto;
+        background-color: #ffffff;
+        opacity: 0;
+        transform: translateY(25px);
+        transition: opacity .3s, transform .3s;
+        max-height: 90vh;
+        overflow-y: scroll;
+    }
+
+    &__header,
+    &__body{
+        padding: 15px;
+    }
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $graylight;
+
+        &-title{
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: $greenmedium;
+        }
+
+        &-close{
+            align-self: center;
+            font-size: 1.2rem;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+    }
+
+    &__body{
+        span{
+            color: $greenmedium;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        &-title{
+            text-transform: uppercase;
+            font-size: .9rem;
+            margin-bottom: 10px;
+        }
+
+        &-container{
+            border: 1px solid $graylight;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        &-section{
+            padding: 10px 0;
+            margin: 0 20px;
+            border-bottom: 1px solid $graylight;
+
+            &:last-child{
+                border: none;
+            }
+        }
+
+        &-image{
+            width: 70px;
+            margin: 10px 5px;
+            border: 1px solid $graylight;
+        }
+    }
+
+    @include mobile{
+        &-container{
+            width: 98%;
+            overflow-y: scroll;
+            margin: 0;
+        }
+    }
+}
+
+.fees-modal-show{
+    background-color: rgba(0, 0, 0, 0.7);
+    visibility: visible;
+
+    .fees-modal-container{
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.nocomment-alert{
+    display: flex;
+    padding: 15px 20px;
+    background-color: $graylight;
+    border-radius: 5px;
+    align-content: center;
+
+    &__icon{
+        margin-right: 10px;
+        align-self: center;
+    }
+}
