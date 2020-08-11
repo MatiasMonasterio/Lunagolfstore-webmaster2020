@@ -1,0 +1,29 @@
+.main-btn{
+    padding: 10px 25px;
+    display: inline-block;
+    background-color: $greenmedium;
+    color: $white;
+    border-radius: 50px;
+    box-shadow: 3px 8px 5px -6px $shadow1;
+    transition: background-color .15s;
+    font-size: .95rem;
+
+    &:hover{
+        background-color: lighten( $greenmedium, 4 );
+    }
+}
+
+.secundary-btn{
+    // margin-left: auto;
+    // white-space: nowrap;
+    cursor: pointer;
+    padding: 8px 20px;
+    display: block;
+    background-color: $white;
+    color: $greenmedium;
+    border: 1px solid $greenmedium;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 3px 8px 5px -6px $shadow1;
+    // font-size: .85rem;
+}

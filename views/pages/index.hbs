@@ -40,21 +40,21 @@
 
     </article>  <!-- CATEGORIES -->
 
-    <article class="products-group container home-main__article featured-products">
-        <h2 class="products-group__title">Productos Destacados</h2>
-        <div class="product-swiper products-group__container">
-            <div class="swiper-wrapper products-group__wrapper">
+    <article class="swiper2 container home-main__article featured-products">
+        <h2 class="swiper2__title">Productos Destacados</h2>
+        <div class="product-swiper swiper2__container">
+            <div class="swiper-wrapper swiper2__wrapper">
                 {{#each productos}}
                     {{>productCard}}
                 {{/each}}
             </div>  <!-- swiper-wrapper -->
         </div>  <!-- product-swiper -->
-    </article>  <!-- featured-products home-main products-group -->
+    </article>  <!-- featured-products home-main swiper2 -->
 
-    <article class="products-group container home-main__article ofertas-products">
-        <h2 class="products-group__title">Ofertas</h2>
-        <div class="product-swiper products-group__container">
-            <div class="swiper-wrapper products-group__wrapper">
+    <article class="swiper2 container home-main__article ofertas-products">
+        <h2 class="swiper2__title">Ofertas</h2>
+        <div class="product-swiper swiper2__container">
+            <div class="swiper-wrapper swiper2__wrapper">
                 {{#each productos}}
                     {{>productCard}}
                 {{/each}}
@@ -62,10 +62,10 @@
         </div> <!-- product-swiper -->
     </article> <!-- product-group ofertas-products -->
 
-    <article class="products-group container home-main__article recommendation-product">
-        <h2 class="products-group__title">Productos Recomendados</h2>
-        <div class="product-swiper products-group__container">
-            <div class="swiper-wrapper products-group__wrapper">
+    <article class="swiper2 container home-main__article recommendation-product">
+        <h2 class="swiper2__title">Productos Recomendados</h2>
+        <div class="product-swiper swiper2__container">
+            <div class="swiper-wrapper swiper2__wrapper">
                 {{#each productos}}
                     {{>productCard}}
                 {{/each}}

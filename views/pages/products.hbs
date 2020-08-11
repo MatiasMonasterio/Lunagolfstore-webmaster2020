@@ -1,8 +1,7 @@
 <header class="secundary-header">
-    {{!-- <div class="container"> --}}
         <h1 class="secundary-header__title">Productos</h1>
-    {{!-- </div> --}}
-</header>
+</header>   <!-- SECUNDARY-HEADER -->
+
 
 <nav class="products-nav" id="navMobile">
     <button class="products-nav__button-mobile" id="showCategories">{{title}}<i class="fas fa-chevron-down products-nav__button-mobile__icon"></i></button>
@@ -22,9 +21,9 @@
 
         {{#if indumentaria}}<li class="products-nav__item"><a href="../products/ropa-accesorios" class="products-nav__link products-nav__link-active">Ropa y Accesorios</a></li>{{/if}}
         {{#unless indumentaria}}<li class="products-nav__item"><a href="../products/ropa-accesorios" class="products-nav__link">Ropa y Accesorios</a></li>{{/unless}}
-        
-    </ul>
-</nav>
+    </ul>   <!-- products-nav__list -->
+</nav>  <!-- PRODUCTS-NAV -->
+
 
 <main class="products-main products container">
     <aside class="products-main__filters filter" id="filter">
@@ -36,41 +35,30 @@
         {{#each filtro}}
         <section class="filter__section">
             <h4 class="filter__section-title">{{this.title}}<i class="fas fa-chevron-down filter__section-title-icon"></i></h4>
-
             <ul class="filter__section-list">
                 {{#each this.items}}
-                <li class="filter__section-item"><a href="" class="filter__section-link">{{this}}</a></li>
+                    <li class="filter__section-item"><a href="" class="filter__section-link">{{this}}</a></li>
                 {{/each}}
-            </ul>
-
+            </ul>   <!-- filter__section-list -->
             <button type="button" class="filter__button">Ver más</button>
-        </section>
+        </section>  <!-- filter__section -->
         {{/each}}
-    </aside>
+    </aside>    <!-- FILTER products-main__filters -->
 
     <div class="products-main__list products-list">
-
-        <form action="/products{{path}}" method="GET" id="orderForm" class="products-main__list-form">
-                    <select name="order" id="selectList" class="products-main__list-select">
+        <form action="/products{{path}}" method="GET" id="orderForm" class="products-list__form">
+                <select name="order" id="selectList" class="products-list__select">
                     <option value="">Más Relevante</option>
-                    <option value="priceDESC" class="products-main__list-option">Precio: Mayor a Menor</option>
-                    <option value="priceASC" class="products-main__list-option">Precio: Menor a Mayor</option>
-                    <option value="nameASC" class="products-main__list-option">Nombre: A - Z</option>
-                    <option value="nameDESC" class="products-main__list-option">Nombre: Z - A</option>
-                    <option value="dateDESC" class="products-main__list-option">Fecha: Más Nuevo</option>
-                    <option value="dateASC" class="products-main__list-option">Fecha: Más Antiguo</option>
-                </select>   <!-- products-main__list-select -->
-        </form>
-        {{!-- <select name="" id="" class="products-main__list-select">
-            <option value="" class="products-main__list-option">Precio: Mayor a Menor</option>
-            <option value="" class="products-main__list-option">Precio: Menor a Mayor</option>
-            <option value="" class="products-main__list-option">Nombre: A - Z</option>
-            <option value="" class="products-main__list-option">Nombre: Z - A</option>
-            <option value="" class="products-main__list-option">Fecha: Más Nuevo</option>
-            <option value="" class="products-main__list-option">Fecha: Más Antiguo</option>
-        </select>   <!-- products-main__list-select --> --}}
+                    <option value="priceDESC" class="products-list__option">Precio: Mayor a Menor</option>
+                    <option value="priceASC" class="products-list__option">Precio: Menor a Mayor</option>
+                    <option value="nameASC" class="products-list__option">Nombre: A - Z</option>
+                    <option value="nameDESC" class="products-list__option">Nombre: Z - A</option>
+                    <option value="dateDESC" class="products-list__option">Fecha: Más Nuevo</option>
+                    <option value="dateASC" class="products-list__option">Fecha: Más Antiguo</option>
+                </select>   <!-- products-list__select -->
+        </form> <!-- product-list__form -->
 
-        <div class="products-main__list-select-mobbile select-mobile" id="selectMobile">
+        <div class="products-list__select-mobbile select-mobile" id="selectMobile">
             <button class="select-mobile__close-button" id="closeSelect"><i class="fas fa-arrow-left"></i></button>
 
             <ul class="select-mobile__list">
@@ -85,23 +73,13 @@
 
         <div class="filter-mobile products-main__filter-mobile">
             <button class="filter-mobile__button" id="showSelect"><i class="filter-mobile__icon fas fa-sort-amount-down"></i>Ordenar</button>
+            {{#if filtro}}
             <button class="filter-mobile__button" id="showFilter"><i class="filter-mobile__icon fas fa-filter"></i>Filtrar</button>
+            {{/if}}
         </div>
 
-        <div id="productCardContainer" class="products-main__list-container">
-        </div>
+        <div id="productCardContainer" class="products-list__container"></div>
+        <button class="products-list__button main-btn" id="moreProducts">Mostrar más productos</button>
+    </div>  <!-- PRODUCT-LIST -->
 
-        {{!-- {{#each producs}}
-            {{>productCard}}
-        {{/each}} --}}
-
-        <button class="products-main__list-button" id="moreProducts">Mostrar más productos</button>
-        
-
-        {{#each productList}}
-            {{#with this}}
-                <p>{{name}}</p>
-            {{/with}}
-        {{/each}}
-    </div>
-</main>
+</main> <!-- PRODUCTS-MAIN PRODUCTS container -->

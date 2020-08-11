@@ -23,16 +23,8 @@
     }
 
     &__button{
-        padding: 10px 25px;
         margin-top: 40px;
-        background-color: $greenmedium;
-        color: $white;
-        border-radius: 50px;
-        box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.2);
-        transition: background-color .12s;
-        text-decoration: none;
         margin-left: auto;
-        transition: background-color .15s;
     }
 
     &__message{

@@ -59,16 +59,7 @@
             }
 
             &__submit{
-                padding: 10px 25px;
                 margin-left: 10px;
-                font-size: .9rem;
-                border: none;
-                background-color: $greenmedium;
-                color: $white;
-                border-radius: 50px;
-                box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.2);
-                // transition: background-color .12s;
-                cursor: pointer
             }
 
             &__alert{
@@ -105,8 +96,8 @@
 
                 &__submit{
                     margin: 0 auto;
-                    display: inline-block;
-                    padding: 8px 30px;
+                    // display: inline-block;
+                    // padding: 8px 30px;
                 }
 
                 &__alert{
