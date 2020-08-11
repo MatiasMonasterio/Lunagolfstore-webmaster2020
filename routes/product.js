@@ -43,11 +43,12 @@ router.post('/:id', passport.isAuthenticated ,async( req, res, next ) => {
   res.redirect('back');
 })
 
+// Calculadora de cuotas
 const feeCalculator = ( price ) => {
   return fee = {
-    fee6: price / 6,
-    fee3: price / 3,
-    fee12: price / 12
+    fee6: (price / 6).toFixed(2),
+    fee3: (price / 3).toFixed(2),
+    fee12: (price / 12).toFixed(2)
   };
 }
 
