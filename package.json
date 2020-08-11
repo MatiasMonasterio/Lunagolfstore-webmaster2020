@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "sass": "node-sass public/stylesheets/scss/main.scss public/stylesheets/style.css -w --source-map-contents"
+    "sass": "node-sass public/scss/main.scss  public/css/style.css --source-map=true --output-style=compressed -w"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
