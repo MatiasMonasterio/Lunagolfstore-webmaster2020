@@ -7,7 +7,8 @@ const addressApi = require('../api/address');
 const favoriteApi = require('../api/favorite');
 const cartApi = require('../api/cart');
 const userApi = require('../api/user');
-const user = require('../api/user');
+const user = require('../api/user')
+const mailchimpApi = require('../mailchimp/api');
 
 router.get('/', passport.isAuthenticated, ( req, res ) => {
   res.redirect('/user/profile');
@@ -70,10 +71,12 @@ router.get('/history-search', passport.isAuthenticated, async(req, res) => {
 
 router.get('/profile', passport.isAuthenticated, async( req, res, next ) => {
   const userId = req.user.dataValues.id;
+  const userEmail = req.user.dataValues.email;
   const billingAddress = await addressApi.getBillingAddressByUser( userId );
   const shippingAddress = await addressApi.getShippingAddressByUser( userId );
 
-  console.log( billingAddress );
+  // Verificar si el usuario esta subscripto o no a mailchimp
+  const subscribed = await mailchimpApi.chechSubscription( userEmail );
 
   res.render('pages/user', { 
     user: {
@@ -82,6 +85,7 @@ router.get('/profile', passport.isAuthenticated, async( req, res, next ) => {
     },  
     title: 'Mis datos',
     profile: true,
+    subscribed,
     userData: req.user.dataValues,
     billingAddress: billingAddress,
     shippingAddress: shippingAddress

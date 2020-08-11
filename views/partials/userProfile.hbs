@@ -12,7 +12,15 @@
     </article>
     <article class="user-info__article">
         <h4 class="user-info__article-title">Suscripciones</h4>
+
+        {{#if subscribed}}
+        <p>Te encuentras subscripto a nuestro newsletter</p>
+        {{/if}}
+
+        {{#unless subscribed}}
         <p>Actualmente no estás suscripto a ningún newsletter</p>
+        {{/unless}}
+
     </article>
     <article class="user-info__article">
         <h4 class="user-info__article-title">Libreta de direcciones</h4>
