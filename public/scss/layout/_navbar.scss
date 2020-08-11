@@ -261,9 +261,12 @@
 
     &__button{
         align-self: center;
-        padding: 10px;
         color: $graydark;
         margin-left: auto;
+
+        &-icon{
+            padding: 10px;
+        }
         
         &:hover{
             color: $greenmedium;

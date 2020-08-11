@@ -56,6 +56,17 @@ window.addEventListener('scroll', () => {
 })
 
 
+
+
+
+
+
+
+
+
+
+
+
 // load cart
 
 export const productCartItemUI = ( element ) => {
@@ -116,6 +127,7 @@ export const getProductServices = async( id ) => {
 }
 
 export const checkNoProductInCart = () => {
+    console.log( cartList );
     const productCount = cartList.childElementCount;
 
     accountant.innerHTML = productCount;
@@ -140,8 +152,10 @@ else checkNoProductInCart();
 
 
 cartList.addEventListener('click', (e) => {
-    if( e.target.classList.contains('fa-trash') || e.target.classList.contains('product-buy__button') ){
+    // if( e.target.classList.contains('fa-trash') || e.target.classList.contains('product-buy__button') ){
+    if( e.target.classList.contains('fa-trash') ){
         cart = localStorage.getItem('cart').split(',');
+        console.log( cart );
         const item = e.target.parentNode.parentNode
         const productId = item.dataset.productId;
 
