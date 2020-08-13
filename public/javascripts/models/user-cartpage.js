@@ -4,15 +4,19 @@ export class Cart{
     constructor(){
         this.getLocalStorage();
         this.deleteItemEvent();
+        this.finishBuyingEvent();
     }
 
     getLocalStorage(){
-
         const cart = localStorage.getItem('cart').split(',');
-        cart.forEach( async id => {
+
+        cart.forEach( async (id, index) => {
             const product = await getProductServices( id );
             creatProductItemUI( product );
-        })
+            
+            if( index === (cart.length - 1) ) finalPriceCalculator();
+        });
+
     }
 
     deleteItemEvent(){
@@ -22,9 +26,18 @@ export class Cart{
                 deleteProductLocalStorage( productId )
 
                 e.target.parentElement.remove();
+                totalPriceCalculator();
             }
         })
     }
+
+    // finishBuyingEvent(){
+    //     finishBuying.addEventListener('click', () => {
+    //         const productsList = document.querySelectorAll('.product-list__row');
+
+    //         console.log( productsList );
+    //     });
+    // }
 }
 
 
@@ -49,7 +62,8 @@ const creatProductItemUI = ( product ) => {
     const unitPrice = document.createElement('p');
     unitPrice.classList.add('product-list__row-item');
     unitPrice.classList.add('product-list__price');
-    unitPrice.innerHTML = `$ ${product.price}`
+    unitPrice.dataset.dataPrice = product.price;
+    unitPrice.innerHTML = `$ ${parseInt(product.price)}`
 
     const quantity = document.createElement('select');
     quantity.classList.add('product-list__row-item');
@@ -66,6 +80,9 @@ const creatProductItemUI = ( product ) => {
     const finalPrice = document.createElement('p');
     finalPrice.classList.add('product-list__row-item');
     finalPrice.classList.add('product-list__price');
+    finalPrice.classList.add('product-list__final-price');
+    finalPrice.dataset.priceValue = product.price;
+    finalPrice.innerHTML = `$ ${product.price * 1}`
 
     const trasher = document.createElement('i');
     trasher.classList.add('fas');
@@ -98,4 +115,36 @@ const deleteProductLocalStorage = ( id ) => {
     localStorage.setItem('cart', cart);
 
     updateLocalStorage( position );
+}
+
+
+
+const finalPriceCalculator = () => {
+    const selectList = document.querySelectorAll('.product-list__select');
+
+    selectList.forEach( element => {
+        element.addEventListener('change', (e) => {
+            const finalPrice = e.target.nextElementSibling;
+            const unitPrice = parseInt(e.target.previousElementSibling.dataset.dataPrice);
+            const finalPriceVar = unitPrice * e.target.value;
+            
+            finalPrice.innerHTML = `$ ${finalPriceVar}`;
+            finalPrice.dataset.priceValue = finalPriceVar.toString();
+
+            totalPriceCalculator();
+        });
+    });
+
+    totalPriceCalculator();
+}
+
+
+const totalPriceCalculator = () => {
+    const priceList = document.querySelectorAll('.product-list__final-price');
+    let total = 0;
+
+    priceList.forEach( price => {
+        total = total + parseInt(price.dataset.priceValue);
+        totalPrice.innerHTML = `TOTAL: $ ${total}`;
+    });
 }
