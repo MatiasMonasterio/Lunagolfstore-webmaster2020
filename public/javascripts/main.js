@@ -6,10 +6,12 @@ import { SwiperClass } from './vendor/swiper.js';
 import { Product } from './models/product.js';
 import { Cart } from './models/user-cartpage.js';
 import { Favorite } from './models/user-favoritepage.js';
+import { loginValidator } from './models/login.js';
 
 const path = window.location.pathname;
-console.log( path );
-
+if( path !== '/login' || path !== '/signup' ){
+    console.log('dale');
+}
 
 switch( path ){
     case '/':
@@ -26,10 +28,15 @@ switch( path ){
         new Contact;
         break;
     case '/user/cart':
+        console.log('INICIAR');
         new Cart;
         break;
     case '/user/favorite':
         new Favorite;
+        break;
+    case '/login':
+    case '/signup':
+        new loginValidator;
         break;
     default:
         break;
@@ -39,13 +46,4 @@ if( path.includes('/product/') ){
     new Product;
     new SwiperClass;
 }
-
-
-// import './vendor/swiper.js';
-// import './models/products.js';
-// import './models/product.js';
-// import './models/contact.js';
-
-// 
-
 

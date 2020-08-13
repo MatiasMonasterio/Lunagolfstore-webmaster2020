@@ -1,9 +1,16 @@
 <main class="login-main">
-    <div class="login-main__container login">
+    <div class="login-main__container login" id="formContainer">
         {{#unless signup}}
         <h1 class="login__title">Sign in</h1>
-        <form action="/login" class="login__form" method="POST">
-            <input type="text" placeholder="Email Address" name="email" class="login__form-input">
+        <form action="/login" class="login__form" method="POST" id="loginForm">
+            <input 
+                type="text" 
+                placeholder="Email Address" 
+                name="email" 
+                class="login__form-input" 
+                {{!-- pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" --}}
+                {{!-- required --}}
+            >
             <input type="password" placeholder="Pasword" name="password" class="login__form-input">
 
             {{#if signinMessage}}
@@ -22,10 +29,15 @@
         <h1 class="login__title">Sign up</h1>
         <p class="login__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam exercitationem</p>
 
-        <form action="/signup" class="login__form" method="POST">
+        <form action="/signup" class="login__form" method="POST" id="signupForm">
             <input type="text" placeholder="Nombre" name="name" class="login__form-input">
             <input type="text" placeholder="Apellido" name="lastname" class="login__form-input">
-            <input type="text" placeholder="Direccion de email" name="email" class="login__form-input">
+            <input 
+                type="text" 
+                placeholder="Direccion de email" 
+                name="email" 
+                class="login__form-input"
+                >
             <input type="password" placeholder="Contraseña" name="password" class="login__form-input">  
 
             <button type="submit" class="login__form-button main-btn"><i class="fas fa-sign-in-alt"></i> Registrarse</button>
@@ -34,6 +46,6 @@
         <a href="/login"  class="login__link">¿Yo tienes cuenta? Iniciar Sesion</a>
         {{/if}}
 
-
+        <p class="login__alert" id="alertText"></p>
     </div>
 </main>
