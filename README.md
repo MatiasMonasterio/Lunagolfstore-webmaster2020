@@ -80,7 +80,7 @@ Link descarga para base de datos -- https://drive.google.com/drive/folders/1_DAB
 * SIGN IN - Retomar ultima url donde el usuario estaba antes de solicitar iniciar 
 * Separar rutas usadas para backend y para peticiones del front
 * Organizar mejor las rutas
-* Validaciones de sign in, sign up y para actualziar datos
+* ~Validaciones de sign in, sign up y para actualziar datos~
 
 
 ### JavaScript - Fron End
