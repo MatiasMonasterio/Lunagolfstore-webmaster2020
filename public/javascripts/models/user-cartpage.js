@@ -8,6 +8,11 @@ export class Cart{
     }
 
     getLocalStorage(){
+        if( localStorage.getItem('cart') === null || localStorage.getItem('cart').length === 0 ) {
+            cartView.classList.add('no-product');
+            return;
+        }
+
         const cart = localStorage.getItem('cart').split(',');
 
         cart.forEach( async (id, index) => {
@@ -27,17 +32,42 @@ export class Cart{
 
                 e.target.parentElement.remove();
                 totalPriceCalculator();
+
+                if( productList.children.length === 1 ) cartView.classList.add('no-product');
             }
         })
     }
 
-    // finishBuyingEvent(){
-    //     finishBuying.addEventListener('click', () => {
-    //         const productsList = document.querySelectorAll('.product-list__row');
+    finishBuyingEvent(){
+        finishBuying.addEventListener('click', () => {
+            const productsList = document.querySelectorAll('.product-list__row');
+            const totalPriceNumber = totalPrice.innerText;
+            let productsDataPurchases = []
 
-    //         console.log( productsList );
-    //     });
-    // }
+            productsList.forEach( (element, index) => {
+                if( index !== 0 ){
+                    const items = element.children;
+
+                    const purchasesDataProduct = {
+                        id: items[4].dataset.productId,
+                        name: items[0].lastChild.innerText,
+                        unitPrice: items[1].innerText,
+                        quantity: items[2].value,
+                        finalPrice: items[3].innerText
+                    }
+
+                    productsDataPurchases.push( purchasesDataProduct );
+                }
+            });
+
+            const purchases = {
+                products: productsDataPurchases,
+                total: totalPriceNumber
+            }
+
+            sendPurchasesServices( purchases );
+        });
+    }
 }
 
 
@@ -147,4 +177,21 @@ const totalPriceCalculator = () => {
         total = total + parseInt(price.dataset.priceValue);
         totalPrice.innerHTML = `TOTAL: $ ${total}`;
     });
+}
+
+const sendPurchasesServices = async( purchasesData ) => {
+    console.log( 'Entra a funcion' );
+    return await fetch('http://192.168.0.25:3000/api/add-purchase', {
+        method: 'POST',
+        body: JSON.stringify({ data: purchasesData }),
+        headers:{ 'Content-Type': 'application/json' }
+    })
+    .then( resp => {
+        if( resp.status === 200 && resp.redirected ) {
+            localStorage.removeItem('cart');
+            window.location.href = resp.url;
+        }
+        else console.log( resp );
+    })
+    .catch( err => console.log( err ) );
 }

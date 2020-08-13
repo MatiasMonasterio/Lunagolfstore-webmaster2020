@@ -6,15 +6,14 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         date: DataTypes.DATE,
-        total: DataTypes.DECIMAL(10,2)
+        info: DataTypes.TEXT
     },
     {
-        freezeTableName: true, // Para que no agrege s, friza la tabla. No cambiar la tabla
-        timestamps: false // Crea dos campos adicionales con la fecha de creacion y modificacion. Con esto lo desactivamos
+        freezeTableName: true,
+        timestamps: false
     });
 
     Purchase.associate = (models) => {
-        Purchase.belongsTo( models.product );
         Purchase.belongsTo( models.user );
     };
 

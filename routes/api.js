@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const favoriteApi = require('../api/favorite');
+const purchaseApi = require('../api/purchase');
 const { isAuthenticated } = require('../passport/local-auth');
 
 const productApi = require('../api/product');
@@ -36,5 +37,16 @@ router.post('/delete-fav', isAuthenticated, async(req, res, next) => {
     console.log( favorite );
     res.json( favorite );
 });
+
+router.post('/add-purchase', isAuthenticated, async(req, res, next) => {
+    const userId = req.user.dataValues.id;
+    const { data } = req.body;
+
+    console.log( 'Se ejecuta api' );
+    const purchase = await purchaseApi.createPurchase( userId, data )
+
+    console.log( 'elemento creado' );
+    res.redirect( '/user/purchases' );
+})
 
 module.exports = router;

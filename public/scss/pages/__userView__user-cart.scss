@@ -71,6 +71,12 @@
 
 }
 
+.user-alert{
+    text-align: center;
+    margin: 100px 0;
+    display: none;
+}
+
 
 .purchase-container{
     display: flex;
@@ -84,7 +90,16 @@
         width: fit-content;
         margin-bottom: 15px;
     }
+}
 
-    // &__button{
-    // }
+.no-product{
+
+    .user-alert{
+        display: block;
+    }
+
+    .product-list,
+    .purchase-container{
+        display: none;
+    }
 }
