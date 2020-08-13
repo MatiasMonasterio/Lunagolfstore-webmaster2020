@@ -75,7 +75,7 @@ Link descarga para base de datos -- https://drive.google.com/drive/folders/1_DAB
 * PRODUCTS / PRODUCT / CARD - Manejar el formato de moneda para que no muestre mas de 2 decimales y que use punto para separar los miles
 * USER / PURCHASES - Peticion para crear y obtener informacion de reserva de compra
 * USER / HISTORY - Peticion para almacenar info y obtenerla
-* USER / PROFILE - Usar moment para tomar datos de fecha de nacimiento a almacenar (cambiar diseño de bd user)
+* ~USER / PROFILE - Usar moment para tomar datos de fecha de nacimiento a almacenar (cambiar diseño de bd user)~
 * ~USER / PROFILE - Obtener de mailchimp si el correo ya esta registrado o no en el newslatter~
 * SIGN IN - Retomar ultima url donde el usuario estaba antes de solicitar iniciar 
 * Separar rutas usadas para backend y para peticiones del front
