@@ -19,8 +19,9 @@ newslatterForm.addEventListener('submit', async(e) => {
 
 // MAILCHIMP SERVICE API
 const mailchimpPost = async( email ) => {
+    const localHost = window.location.origin;
 
-    return await fetch('http://192.168.0.25:3000/subscribe', {
+    return await fetch(`${localHost}/subscribe`, {
         method: 'POST',
         body: JSON.stringify({email: email}),
         headers:{ 'Content-Type': 'application/json' }

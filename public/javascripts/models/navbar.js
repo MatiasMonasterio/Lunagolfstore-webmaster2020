@@ -115,7 +115,9 @@ let cart;
 
 
 export const getProductServices = async( id ) => {
-    const product = await fetch('http://192.168.0.25:3000/api/product', {
+    const localHost = window.location.origin;
+
+    const product = await fetch(`${localHost}/api/product`, {
         method: 'POST',
         body: JSON.stringify({productId: id}),
         headers:{ 'Content-Type': 'application/json' }

@@ -180,8 +180,8 @@ const totalPriceCalculator = () => {
 }
 
 const sendPurchasesServices = async( purchasesData ) => {
-    console.log( 'Entra a funcion' );
-    return await fetch('http://192.168.0.25:3000/api/add-purchase', {
+    const localHost = window.location.origin;
+    return await fetch(`${localHost}/api/add-purchase`, {
         method: 'POST',
         body: JSON.stringify({ data: purchasesData }),
         headers:{ 'Content-Type': 'application/json' }

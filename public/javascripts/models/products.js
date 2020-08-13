@@ -164,9 +164,10 @@ export class Products{
 
 
 const productServices = async( categoryId, filter, from ) => {
-    console.log( categoryId, filter, from );
+    // console.log( categoryId, filter, from );
+    const localHost = window.location.origin;
 
-    const productList = await fetch('http://192.168.0.25:3000/products/get-data-by-category', {
+    const productList = await fetch(`${localHost}/products/get-data-by-category`, {
         method: 'POST',
         body: JSON.stringify({ 
             categoryId: categoryId,

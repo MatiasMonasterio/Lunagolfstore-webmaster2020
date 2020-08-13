@@ -20,7 +20,8 @@ export class Favorite{
 
 
 const deleteFavItemService = async( id ) => {
-    const fav = await fetch('http://192.168.0.25:3000/api/delete-fav', {
+    const localHost = window.location.origin;
+    const fav = await fetch(`${localHost}/api/delete-fav`, {
         method: 'POST',
         body: JSON.stringify({ favoriteId: id }),
         headers:{ 'Content-Type': 'application/json' }

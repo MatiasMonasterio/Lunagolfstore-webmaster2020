@@ -99,7 +99,9 @@ export class Product{
 }
 
 const addFaviriteService = async( id ) => {
-    const addFavorite = await fetch('http://192.168.0.25:3000/api/add_favorite', {
+    const localHost = window.location.origin;
+
+    const addFavorite = await fetch(`${localHost}/api/add_favorite`, {
         method: 'POST',
         body: JSON.stringify({ productId: id }),
         headers:{ 'Content-Type': 'application/json' }
@@ -114,7 +116,9 @@ const addFaviriteService = async( id ) => {
 }
 
 const getFavoriteExistService = async( id ) => {
-    const favoriteExist = await fetch('http://192.168.0.25:3000/api/check-fav', {
+    const localHost = window.location.origin;
+
+    const favoriteExist = await fetch(`${localHost}/api/check-fav`, {
         method: 'POST',
         body: JSON.stringify({ productId: id }),
         headers:{ 'Content-Type': 'application/json' }
