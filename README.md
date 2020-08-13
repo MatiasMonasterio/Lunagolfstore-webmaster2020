@@ -94,7 +94,7 @@ Link descarga para base de datos -- https://drive.google.com/drive/folders/1_DAB
 * PRODUCT - Evitar cargar productos y favoritos dos veces
 * ~SIGN IN/ SIGN UP - Validaciones de formulario~
 * USER / CART - Tomar los datos del producto cargado, cargarlos en formato json para poder guardarlos en purcases
-* USER / CART - Hacer calculadora para precio total y para precio segun cantidad de productos
+* ~USER / CART - Hacer calculadora para precio total y para precio segun cantidad de productos~
 
 
 ### PROBLEMAS GENERALES
