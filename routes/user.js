@@ -7,7 +7,6 @@ const addressApi = require('../api/address');
 const favoriteApi = require('../api/favorite');
 const cartApi = require('../api/cart');
 const userApi = require('../api/user');
-const user = require('../api/user')
 const mailchimpApi = require('../mailchimp/api');
 
 router.get('/', passport.isAuthenticated, ( req, res ) => {
@@ -92,10 +91,19 @@ router.get('/profile', passport.isAuthenticated, async( req, res, next ) => {
    });
 });
 
+
 router.get('/profile-edit', passport.isAuthenticated, async( req, res, next ) => {
-  const userId = req.user.dataValues.id;
+  const userData = req.user.dataValues;
+  const userId = userData.id;
+  let genderUser;
+  let noDataGender;
+
   const billingAddress = await addressApi.getBillingAddressByUser( userId );
   const shippingAddress = await addressApi.getShippingAddressByUser( userId );
+
+  if( userData.gender === 'Masculino' ) genderUser = true;
+  if( userData.gender === 'Femenino' ) genderUser = false;
+  if( !userData.gender ) noDataGender = true;
 
   res.render('pages/user', {
     user: {
@@ -104,36 +112,40 @@ router.get('/profile-edit', passport.isAuthenticated, async( req, res, next ) =>
     },  
     title: 'Cambiar datos',
     profileEdit: true,
-    userData: req.user.dataValues,
+    genderUser,
+    noDataGender,
+    userData: userData,
     billingAddress: billingAddress,
     shippingAddress: shippingAddress
   });
 });
 
-router.post('/profile-edit', passport.isAuthenticated, async(req, res, next) => {
+// POST para cambiar datos del usuario
+router.post('/profile-edit', passport.isAuthenticated, validateParams, async(req, res, next) => {
   const userId = req.user.dataValues.id;
+  const formData = req.body;
 
   const userData = {
-    name: req.body.name,
-    lastname: req.body.lastname,
-    gender: req.body.gender,
-    date: req.body.date
+    name: formData.name,
+    lastname: formData.lastname,
+    gender: formData.gender,
+    date: formData.date,
   }
 
   const billingAddressData = {
-    street: req.body.addressFac[0],
-    number: req.body.numberFac[0],
-    city: req.body.cityFac[0],
-    location: req.body.locationFac[0],
-    postal_code: req.body.postalFac[0],
+    street: formData.addressFac[0],
+    number: formData.numberFac[0],
+    city: formData.cityFac[0],
+    location: formData.locationFac[0],
+    postal_code: formData.postalFac[0],
   }
 
   const shippingAddressData = {
-    street: req.body.addressFac[1],
-    number: req.body.numberFac[1],
-    city: req.body.cityFac[1],
-    location: req.body.locationFac[1],
-    postal_code: req.body.postalFac[1],
+    street: formData.addressFac[1],
+    number: formData.numberFac[1],
+    city: formData.cityFac[1],
+    location: formData.locationFac[1],
+    postal_code: formData.postalFac[1],
   }
   
   await userApi.updateUserById( userId, userData );
@@ -143,9 +155,30 @@ router.post('/profile-edit', passport.isAuthenticated, async(req, res, next) => 
   res.redirect('/user/profile');
 });
 
+// PATH para cerrar sesion
 router.get('/logout', (req, res, next) => {
   req.logout();
   res.redirect('/');
-})
+});
+
+
+// Validar que los datos ingresados no sean nulos o vacios
+function validateParams( req, res, next ) {
+  const userData = req.body;
+  const valuesArray = Object.values( userData );
+
+  valuesArray.forEach( value => {
+    if( Array.isArray( value ) ){
+      value.forEach( valueElement => {
+        if( valueElement === '' ) res.redirect('/user/profile-edit');
+      });
+    }
+    else{
+      if( value === '' ) res.redirect('/user/profile-edit');
+    }
+  });
+  
+  next();
+};
 
 module.exports = router;

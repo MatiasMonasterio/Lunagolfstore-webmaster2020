@@ -22,19 +22,13 @@ toda la informacion del usuario*/
 
 
 passport.use('local-signup', new LocalStrategy({
-    // usernameField: 'name',
-    // userlastnameField: 'lastname',
     usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
 }, async(req, email, password, done) => {
 
-    // console.log( req.body );
-    // console.log(`EL PROBLEMA ESTA ACA. NAME: ${name} LASTNAME: ${lastname} EMAIL: ${email} PASSWORD: ${password}`);
-
     const userExist = await userApi.getUserByEmail( email );
-    // console.log( userExist.length  );
-    // console.log( userExist );
+
     if( userExist.length !== 0 ) {
         return done(null, false);
     }
@@ -48,12 +42,7 @@ passport.use('local-signup', new LocalStrategy({
     const sendUser = await userApi.createUser( user )
     await addressApi.createBillignAddress( sendUser.id )
     await addressApi.createShippingAddress( sendUser.id )
-    // const user = new User();
-    // user.email = email;
-    // user.password = user.encryptPassword(password) ;
-    // await user.save(); // esto es de mongoose
-    console.log('vamos wach');
-    console.log( sendUser );
+
     done(null, sendUser);
 }));
 

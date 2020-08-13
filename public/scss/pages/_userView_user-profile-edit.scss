@@ -25,6 +25,13 @@
         width: 200px;
         display: inline-block;
         margin-bottom: 10px;
+
+        &::after{
+            content: '*';
+            font-weight: 700;
+            font-size: .85rem;
+            color: #d81406;
+        }
     }
 
     &__text{
@@ -41,14 +48,10 @@
     &__input-date{
         background-color: $white;
         border: 1px solid $graylight;
-        padding: 2px 5px;
-        width: 40px;
+        padding: 2px 0;
+        width: 160px;
         text-align: center;
         box-shadow: 0 0 3px rgba(0,0,0,0.1);
-
-        &:last-child{
-            width: 60px;
-        }
     }
 
     &__input-select{
@@ -78,5 +81,24 @@
         color: #f8f8f8;
         border-radius: 50px;
         box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.2);
+    }
+
+
+    @include mobile{
+        &__label{
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        &__text,
+        &__input-text,
+        &__input-select,
+        &__input-date{
+            margin-bottom: 15px;
+        }
+
+        &__input-date{
+            width: 140px;
+        }
     }
 }

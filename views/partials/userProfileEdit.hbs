@@ -9,20 +9,49 @@
             <p class="edit-info__text">{{userData.email}}</p><br>
 
             <label class="edit-info__label" for="name">Nombre: </label>
-            <input class="edit-info__input-text" type="text" name="name" value="{{userData.name}}"> <br>
+            <input class="edit-info__input-text" type="text" name="name" value="{{userData.name}}" required> <br>
 
             <label class="edit-info__label" for="lastname">Apellido: </label>
-            <input class="edit-info__input-text" type="text" name="lastname" value="{{userData.lastname}}"> <br>
+            <input class="edit-info__input-text" type="text" name="lastname" value="{{userData.lastname}}" required> <br>
 
             <label class="edit-info__label" for="gender">Sexo: </label>
-            <select name="gender" class="edit-info__input-select">
-                <option value="">Seleccionar</option>
-                <option value="">Masculino</option>
-                <option value="">Femenino</option>
-            </select>   <br>
 
+            {{#if noDataGender}}
+            <select name="gender" class="edit-info__input-select" required>
+                <option selected hidden value="">Seleccionar</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+            </select>
+            {{/if}}
+
+            {{#unless noDataGender}}
+                {{#if genderUser}}
+                <select name="gender" class="edit-info__input-select" required>
+                    <option hidden value="">Seleccionar</option>
+                    <option value="Masculino" selected>Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+                {{/if}}
+
+                {{#unless genderUser}}
+                <select name="gender" class="edit-info__input-select" required>
+                    <option hidden value="">Seleccionar</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino" selected>Femenino</option>
+                </select>
+                {{/unless}}
+            {{/unless}}
+
+            <br>
             <label class="edit-info__label" for="date">Fecha de nacimiento:</label>
-            <input type="text" name="date" class="edit-info__input-date"> / <input type="text" name="date" class="edit-info__input-date"> / <input type="text" name="date" class="edit-info__input-date">
+
+            {{#if userData.date}}
+            <input type="date" name="date" class="edit-info__input-date" value="{{userData.date}}" required>
+            {{/if}}
+
+            {{#unless userData.date}}
+            <input type="date" name="date" class="edit-info__input-date" required>
+            {{/unless}}
         </article>
 
         <article class="edit-info__article">
@@ -36,19 +65,19 @@
 
                 {{#with billingAddress}}
                 <label class="edit-info__label" for="addressFac">Dirección: </label>
-                <input class="edit-info__input-text" type="text" name="addressFac" value="{{street}}"> <br>
+                <input class="edit-info__input-text" type="text" name="addressFac" value="{{street}}" required> <br>
 
                 <label class="edit-info__label" for="numberFac">Numero: </label>
-                <input class="edit-info__input-text" type="text" name="numberFac" value="{{number}}"> <br>
+                <input class="edit-info__input-text" type="text" name="numberFac" value="{{number}}" required> <br>
 
                 <label class="edit-info__label" for="postalFac">Codigo postal: </label>
-                <input class="edit-info__input-text" type="text" name="postalFac" value="{{postal_code}}"> <br>
+                <input class="edit-info__input-text" type="text" name="postalFac" value="{{postal_code}}" required> <br>
 
                 <label class="edit-info__label" for="cityFac">Ciudad: </label>
-                <input class="edit-info__input-text" type="text" name="cityFac" value="{{city}}"> <br>
+                <input class="edit-info__input-text" type="text" name="cityFac" value="{{city}}" required> <br>
 
                 <label class="edit-info__label" for="locationFac">Provincia: </label>
-                <input class="edit-info__input-text" type="text" name="locationFac" value="{{location}}"> <br>
+                <input class="edit-info__input-text" type="text" name="locationFac" value="{{location}}" required> <br>
                 {{/with}}
                 
             </article>
@@ -57,19 +86,19 @@
 
                 {{#with shippingAddress}}
                 <label class="edit-info__label" for="addressFac">Dirección: </label>
-                <input class="edit-info__input-text" type="text" name="addressFac" value="{{street}}"> <br>
+                <input class="edit-info__input-text" type="text" name="addressFac" value="{{street}}" required> <br>
 
                 <label class="edit-info__label" for="numberFac">Numero: </label>
-                <input class="edit-info__input-text" type="text" name="numberFac" value="{{number}}"> <br>
+                <input class="edit-info__input-text" type="text" name="numberFac" value="{{number}}" required> <br>
 
                 <label class="edit-info__label" for="postalFac">Codigo postal: </label>
-                <input class="edit-info__input-text" type="text" name="postalFac" value="{{postal_code}}"> <br>
+                <input class="edit-info__input-text" type="text" name="postalFac" value="{{postal_code}}" required> <br>
 
                 <label class="edit-info__label" for="cityFac">Ciudad: </label>
-                <input class="edit-info__input-text" type="text" name="cityFac" value="{{city}}"> <br>
+                <input class="edit-info__input-text" type="text" name="cityFac" value="{{city}}" required> <br>
 
                 <label class="edit-info__label" for="locationFac">Provincia: </label>
-                <input class="edit-info__input-text" type="text" name="locationFac" value="{{location}}"> <br>
+                <input class="edit-info__input-text" type="text" name="locationFac" value="{{location}}" required> <br>
                 {{/with}}
             </article>
         </article>

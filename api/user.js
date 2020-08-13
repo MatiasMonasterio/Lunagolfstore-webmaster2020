@@ -40,7 +40,7 @@ const createUser = async( user ) => {
     const newUser = await db.user.create({
         name: user.name,
         lastname: user.lastname,
-        gender: user.gender,
+        // gender: user.gender,
         email: user.email,
         pass: user.pass
     });
@@ -74,6 +74,7 @@ const updateUserById = async( id, newUserData) => {
     const newDataUser = await db.user.update({
         name: newUserData.name,
         lastname: newUserData.lastname,
+        gender: newUserData.gender,
         date: newUserData.date,
         telehpone: newUserData.telephone
     },

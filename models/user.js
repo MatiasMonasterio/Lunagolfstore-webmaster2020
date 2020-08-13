@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         pass: DataTypes.STRING(100),
         name: DataTypes.STRING(20),
         lastname: DataTypes.STRING(20),
-        // gender: DataTypes.STRING(20),
+        gender: DataTypes.STRING(20),
         date: DataTypes.DATEONLY,
         telephone: DataTypes.STRING(15),
     },
