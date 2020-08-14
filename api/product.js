@@ -70,9 +70,40 @@ const searchProduct = async( query ) => {
     return productList;
 }
 
+const getFeaturedProducts = async() => {
+    const productList = await db.product.findAll({
+        order: [ Sequelize.fn( 'RAND' ) ],
+        limit: 5
+    }).then( resp => resp );
+
+    return productList;
+}
+
+const getDiscountProducts = async() => {
+    const productList = await db.product.findAll({
+        where: { discount : { [Op.ne]: 0 } },
+        limit: 5
+    })
+    .then( resp => resp )
+
+    return productList;
+}
+
+const getRecommendedProducts = async() => {
+    const productList = await db.product.findAll({
+        order: [ Sequelize.fn( 'RAND' ) ],
+        limit: 5
+    }).then( resp => resp );
+
+    return productList;
+}
+
 module.exports = {
     getProduct,
     getProductsByCategory,
     searchProduct,
-    getRandomProducts
+    getRandomProducts,
+    getFeaturedProducts,
+    getDiscountProducts,
+    getRecommendedProducts
 }

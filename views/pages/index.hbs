@@ -44,7 +44,7 @@
         <h2 class="swiper2__title">Productos Destacados</h2>
         <div class="product-swiper swiper2__container">
             <div class="swiper-wrapper swiper2__wrapper">
-                {{#each productos}}
+                {{#each featuredProducts}}
                     {{>productCard}}
                 {{/each}}
             </div>  <!-- swiper-wrapper -->
@@ -55,7 +55,7 @@
         <h2 class="swiper2__title">Ofertas</h2>
         <div class="product-swiper swiper2__container">
             <div class="swiper-wrapper swiper2__wrapper">
-                {{#each productos}}
+                {{#each discountProducts}}
                     {{>productCard}}
                 {{/each}}
             </div> <!-- product-wrapper -->
@@ -66,7 +66,7 @@
         <h2 class="swiper2__title">Productos Recomendados</h2>
         <div class="product-swiper swiper2__container">
             <div class="swiper-wrapper swiper2__wrapper">
-                {{#each productos}}
+                {{#each recommendedproducts}}
                     {{>productCard}}
                 {{/each}}
             </div>  <!-- swiper-wrapper -->
