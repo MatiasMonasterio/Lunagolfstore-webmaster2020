@@ -82,6 +82,7 @@ const getFeaturedProducts = async() => {
 const getDiscountProducts = async() => {
     const productList = await db.product.findAll({
         where: { discount : { [Op.ne]: 0 } },
+        order: [ Sequelize.fn( 'RAND' ) ],
         limit: 5
     })
     .then( resp => resp )
