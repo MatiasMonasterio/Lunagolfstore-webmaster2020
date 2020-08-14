@@ -25,6 +25,7 @@ Link descarga para base de datos -- https://drive.google.com/drive/folders/1_DAB
 * Encripacion de contraseñas con bcrypt-nodejs
 * Mensajes de errores de validaciones desde el backend con connect-flash
 * Newslatter con mailchimp-api-v3
+* autoprefixer para css y postcss-cli para manejarlo desde el cli
 * Uso de swiper
 * Conexion a la api mediante url desde javascript para manejo de informacion sin recargar página.
 
