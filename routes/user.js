@@ -15,8 +15,6 @@ router.get('/', passport.isAuthenticated, ( req, res ) => {
 });
 
 router.get('/cart', passport.isAuthenticated, async( req, res ) => {
-  const userId = req.user.dataValues.id;
-  const cartList = await cartApi.getCartByUser( userId );
 
   res.render('pages/user', { 
     user: {
@@ -26,7 +24,6 @@ router.get('/cart', passport.isAuthenticated, async( req, res ) => {
     title: 'Carrito',
     path: 'user-card',
     carrito: true,
-    cartList: cartList
   });
 });
 
