@@ -6,7 +6,6 @@ const passport = require('../passport/local-auth');
 
 const addressApi = require('../api/address');
 const favoriteApi = require('../api/favorite');
-const cartApi = require('../api/cart');
 const userApi = require('../api/user');
 const mailchimpApi = require('../mailchimp/api');
 const purchaseApi = require('../api/purchase');

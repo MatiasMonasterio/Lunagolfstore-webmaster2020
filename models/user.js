@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
         User.hasOne(models.billingAddress);
         User.hasOne(models.shippingAddress);
         User.belongsToMany( models.product, { through: models.favorite } );
-        User.belongsToMany( models.product, { through: models.cart } );
         User.belongsToMany( models.product, { through: models.purchase } );
     };
 

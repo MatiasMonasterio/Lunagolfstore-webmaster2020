@@ -33,16 +33,12 @@ const getProductsByCategory = async( id, orderFilter, from ) => {
         }).then( resp => resp );
     }
     else{
-        // console.log( 'ESTE ES EL QUE QUIER:',  orderFilter );
-        // console.log( orderFilter.indexOf('DESC') );
 
         if( orderFilter.includes('DESC') ) type = 'DESC';
         if( orderFilter.includes('ASC') ) type = 'ASC';
         if( orderFilter.includes('name') ) colum = 'name';
         if( orderFilter.includes('price') ) colum = 'price';
         if( orderFilter.includes('date') ) colum = 'date';
-
-        console.log( colum, type );
 
         productList = await db.product.findAll({
             where: { categoryId: id },

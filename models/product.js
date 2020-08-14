@@ -9,6 +9,8 @@ module.exports = (sequelize, DataTypes) => {
         brand: DataTypes.STRING,
         price: DataTypes.DECIMAL(10, 2),
         stock: DataTypes.INTEGER,
+        date: DataTypes.DATE,
+        discount: DataTypes.INTEGER,
         image: DataTypes.STRING,
         description: DataTypes.TEXT,
     },
@@ -21,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
         Product.hasMany( models.comment );
         Product.belongsTo( models.category );
         Product.belongsToMany( models.user, { through: models.favorite } );
-        Product.belongsToMany( models.user, { through: models.cart } );
     };
 
     return Product;
