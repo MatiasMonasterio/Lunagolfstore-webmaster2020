@@ -68,10 +68,11 @@ export class Product{
 
     favoriteEvent(){
         addFavorite.addEventListener('click', async() => {
-            console.log('click');
             const productId =  addFavorite.dataset.productId;
-            await addFaviriteService( productId );
-            addFavorite.classList.add('fav-exist');
+            await addFaviriteService( productId )
+                .then(( res ) => {
+                    if( !res.redirected ) addFavorite.classList.toggle('fav-exist')
+                });
         })
     }
 
@@ -81,17 +82,8 @@ export class Product{
             const productId = addCardButton.dataset.productId;
             const favorite = await getFavoriteExistService( productId );
     
-            if( favorite === null || favorite.length === 0 ){
-                console.log('no existe');
-            }
-            else {
-                addFavorite.disabled = true;
-                addFavorite.classList.add('fav-exist');
-                console.log('existe');
-            }
-    
-            console.log('corrio');
-            console.log( favorite );
+            if( favorite === null || favorite.length === 0 ) console.log('no existe');
+            else addFavorite.classList.add('fav-exist')
         })
 
     }
@@ -106,7 +98,7 @@ const addFaviriteService = async( id ) => {
         body: JSON.stringify({ productId: id }),
         headers:{ 'Content-Type': 'application/json' }
     })
-    .then( async resp => {
+    .then( resp => {
         if( resp.redirected ) window.location.href = resp.url;
         else return resp
     })

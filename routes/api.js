@@ -16,10 +16,18 @@ router.post('/product', async(req, res, next) => {
 router.post('/add_favorite', isAuthenticated, async(req, res, next) => {
     const productId = req.body.productId;
     const userId = req.user.dataValues.id;
-    console.log('entro');
+    const favoriteExist = await favoriteApi.getOneFavorite( productId, userId );
 
-    const newFavorite = favoriteApi.addFavorite( productId, userId);
-    res.send( newFavorite );
+    if( favoriteExist.length !== 0 ) {
+        const favoriteId = favoriteExist[0].dataValues.id
+
+        favoriteApi.deleteFavoriteById( favoriteId );
+        res.send( favoriteExist );
+    }
+    else{
+        const newFavorite = favoriteApi.addFavorite( productId, userId);
+        res.send( newFavorite );
+    }
 });
 
 router.post('/check-fav', isAuthenticated, async(req, res, next) => {
