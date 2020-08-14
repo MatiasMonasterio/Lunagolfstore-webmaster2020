@@ -72,7 +72,7 @@ Link descarga para base de datos -- https://drive.google.com/drive/folders/1_DAB
 * ~HOME - Crear tres peticiones randon para productos destacados, ofertas y random~
 * ABOUT - Peticiones para testimoniales
 * ~PRODUCTS - Peticion con filtro de fecha para productos (tengo que eliminar toda la tabla de productos y crearla con el campo fecha)~
-* PRODUCT - Validadar si el producto ya esta en favoritos para no cargarlo dos veces
+* ~PRODUCT - Validadar si el producto ya esta en favoritos para no cargarlo dos veces~
 * PRODUCTS / PRODUCT / CARD - Manejar el formato de moneda para que no muestre mas de 2 decimales y que use punto para separar los miles
 * ~USER / PURCHASES - Peticion para crear y obtener informacion de reserva de compra~
 * USER / HISTORY - Peticion para almacenar info y obtenerla
@@ -91,7 +91,7 @@ Link descarga para base de datos -- https://drive.google.com/drive/folders/1_DAB
 * PRODUCTS - Hacer que el primer select "Más relevante" limpie la url
 * PRODUTS - Hacer funcionar los filtros en la version responsive
 * PRODUCT - Detectar si el producto ya esta en el cart para poder sacarlo desde la vista de productos
-* PRODUCT - Lo mismo pero con los favoritos
+* ~PRODUCT - Lo mismo pero con los favoritos~
 * PRODUCT - Evitar cargar productos y favoritos dos veces
 * ~SIGN IN/ SIGN UP - Validaciones de formulario~
 * ~USER / CART - Tomar los datos del producto cargado, cargarlos en formato json para poder guardarlos en purcases~
