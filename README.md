@@ -73,7 +73,7 @@ Link descarga para base de datos -- https://drive.google.com/drive/folders/1_DAB
 * PRODUCTS - Peticion con filtro de fecha para productos (tengo que eliminar toda la tabla de productos y crearla con el campo fecha)
 * PRODUCT - Validadar si el producto ya esta en favoritos para no cargarlo dos veces
 * PRODUCTS / PRODUCT / CARD - Manejar el formato de moneda para que no muestre mas de 2 decimales y que use punto para separar los miles
-* USER / PURCHASES - Peticion para crear y obtener informacion de reserva de compra
+* ~USER / PURCHASES - Peticion para crear y obtener informacion de reserva de compra~
 * USER / HISTORY - Peticion para almacenar info y obtenerla
 * ~USER / PROFILE - Usar moment para tomar datos de fecha de nacimiento a almacenar (cambiar diseño de bd user)~
 * ~USER / PROFILE - Obtener de mailchimp si el correo ya esta registrado o no en el newslatter~
