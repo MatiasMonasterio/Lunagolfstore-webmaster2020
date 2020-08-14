@@ -7,6 +7,7 @@ import { Product } from './models/product.js';
 import { Cart } from './models/user-cartpage.js';
 import { Favorite } from './models/user-favoritepage.js';
 import { loginValidator } from './models/login.js';
+import { Purchase } from './models/user-purchase.js';
 
 const path = window.location.pathname;
 if( path !== '/login' || path !== '/signup' ){
@@ -30,6 +31,9 @@ switch( path ){
     case '/user/cart':
         console.log('INICIAR');
         new Cart;
+        break;
+    case '/user/purchases':
+        new Purchase;
         break;
     case '/user/favorite':
         new Favorite;

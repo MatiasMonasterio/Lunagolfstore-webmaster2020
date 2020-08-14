@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const moment = require('moment');
 
 const passport = require('../passport/local-auth');
 
@@ -8,6 +9,7 @@ const favoriteApi = require('../api/favorite');
 const cartApi = require('../api/cart');
 const userApi = require('../api/user');
 const mailchimpApi = require('../mailchimp/api');
+const purchaseApi = require('../api/purchase');
 
 router.get('/', passport.isAuthenticated, ( req, res ) => {
   res.redirect('/user/profile');
@@ -29,14 +31,23 @@ router.get('/cart', passport.isAuthenticated, async( req, res ) => {
   });
 });
 
-router.get('/purchases', passport.isAuthenticated, ( req, res ) => {
+router.get('/purchases', passport.isAuthenticated, async( req, res ) => {
+  const userId = req.user.dataValues.id;
+  const purchasesList = await purchaseApi.getPurchasesByUserId( userId );
+
+  purchasesList.forEach( ( item, index ) => {
+    purchasesList[index].info = JSON.parse(item.info);
+    purchasesList[index].date = moment( item.date ).format( 'DD/MM/YYYY' );
+  });
+
   res.render('pages/user', {
     user: {
       name: req.user.dataValues.name,
       lastname: req.user.dataValues.lastname
     },  
     title: 'Compras',
-    compras: true 
+    compras: true,
+    purchasesList
   });
 });
 

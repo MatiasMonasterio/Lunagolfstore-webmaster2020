@@ -1,0 +1,43 @@
+<div class="user-purchases">
+    <h3 class="user-info__title">Compras</h3>
+
+    {{#unless purchasesList}}
+    <p class="user-alert">
+        No has realizado ninguna compra aún
+    </p>
+    {{/unless}}
+
+    {{#each purchasesList}}
+    <div class="user-purchases__purchase purchase">
+        <h4 class="purchase__title">Pedido N° {{this.id}}</h4>
+        <p class="purchase__cant">Cantidad Productos: 2</p>
+        <p class="purchase__total">{{this.info.total}}</p>
+
+        <p class="purchase__date">Realizado: {{this.date}}</p>
+        <span></span>
+        <button class="purchase__button">Ver pedido <i class="fas fa-angle-down purchase__button-icon"></i></button>
+
+        <div class="purchase__list">
+            <div class="purchase__list-container">
+                <p class="purchase__list-title">Producto</p>
+                <p class="purchase__list-title">Precio</p>
+                <p class="purchase__list-title">Cantidad</p>
+                <p class="purchase__list-title">Subtotal</p>
+            </div>
+            {{#each this.info.products}}
+            {{#with this}}
+            <div class="purchase__list-container">
+                <a href="/product/{{id}}" class="purchase__list-name">{{name}}</a>
+                <p class="purchase__list-text">{{unitPrice}}</p>
+                <p class="purchase__list-text">{{quantity}}</p>
+                <p class="purchase__list-text">{{finalPrice}}</p>
+            </div>
+            {{/with}}
+            {{/each}}
+            <div class="purchase__list-container">
+                <p class="purchase__list-total">{{this.info.total}}</p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

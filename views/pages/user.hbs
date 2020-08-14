@@ -97,12 +97,16 @@
 
 <div class="container user-view">
 
-    {{#if favoritos}}
-    {{>userFavorite}}
-    {{/if}}
-
     {{#if carrito}}
     {{>userCart}}
+    {{/if}}
+
+    {{#if compras}}
+    {{>userPurchases}}
+    {{/if}}
+
+    {{#if favoritos}}
+    {{>userFavorite}}
     {{/if}}
 
     {{#if profile}}
