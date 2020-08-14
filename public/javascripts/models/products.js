@@ -176,7 +176,12 @@ const productServices = async( categoryId, filter, from ) => {
         }),
         headers:{ 'Content-Type': 'application/json' }
     })
-    .then( async(resp) => await resp.json() )
+    .then( async(resp) => {
+        if( resp.status === 206 ) {
+            moreProducts.classList.add('no-more-products');
+        }
+        return await resp.json() 
+    })
     .catch( err => err ); 
 
     return productList;

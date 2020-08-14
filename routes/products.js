@@ -80,7 +80,13 @@ router.post('/get-data-by-category', async(req, res, next) => {
   const { categoryId, filter, from } = req.body;
 
   const productList = await productApi.getProductsByCategory( categoryId, filter, from );
+  const amount = await productApi.getCountProductByCategory( categoryId );
+
+  if( productList.length < 12 || productList.length === amount ) {
+    res.status( 206 ).json( productList )
+  }
+
   res.json( productList );
-})
+});
 
 module.exports = router;

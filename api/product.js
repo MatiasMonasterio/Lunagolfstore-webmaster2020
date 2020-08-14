@@ -52,6 +52,15 @@ const getProductsByCategory = async( id, orderFilter, from ) => {
     return productList;
 }
 
+const getCountProductByCategory = async( categoryId ) => {
+    const amount = await db.product.count({
+        where:{ categoryId }
+    })
+    .then( resp => resp );
+
+    return amount;
+}
+
 const searchProduct = async( query ) => {
     const productList = await db.product.findAll({
         where:{
@@ -102,6 +111,7 @@ const getRecommendedProducts = async() => {
 module.exports = {
     getProduct,
     getProductsByCategory,
+    getCountProductByCategory,
     searchProduct,
     getRandomProducts,
     getFeaturedProducts,
