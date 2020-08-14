@@ -19,7 +19,7 @@ router.get('/:id', async(req, res, next) => {
   // console.log( commentsList );
 
   res.render('pages/product', { 
-    title: req.params.id,
+    title: product.name,
     relacionados: randomProducts,
     commentsList,
     productId: productId,
