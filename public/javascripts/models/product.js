@@ -32,11 +32,12 @@ export class Product{
         console.log( this.cart );
         addCardButton.addEventListener('click', async() => {
             const productId = addCardButton.dataset.productId
+
+            if( this.cart.indexOf( productId ) !== -1 ) return;
+
             this.cart.push( productId );
 
-            addCardButton.disabled = true;
-            addCardButton.innerHTML = 'Cargado <i class="fas fa-check"></i>';
-
+            addCardButton.innerHTML = 'Producto Cargado!';
             localStorage.setItem( 'cart' , this.cart );
 
             const productData = await getProductServices( productId );
@@ -47,15 +48,7 @@ export class Product{
 
     checkCart(){
         const productId = addCardButton.dataset.productId;
-
-        if( this.cart.indexOf(productId) !== -1 ){
-            addCardButton.disabled = true;
-            addCardButton.innerHTML = 'Cargado <i class="fas fa-check"></i>';
-        }
-        else{
-            addCardButton.disabled = false;
-            addCardButton.innerHTML = 'Agregar a Carrito';
-        }
+        if( this.cart.indexOf(productId) !== -1 ) addCardButton.innerHTML = 'Producto Cargado!';
     }
 
     async storageEvent(){
