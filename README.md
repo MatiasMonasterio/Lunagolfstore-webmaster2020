@@ -71,7 +71,7 @@ Link descarga para base de datos -- https://drive.google.com/drive/folders/1_DAB
 * FOOTER - Mostrar mensaje de registro a newslatter exitoso
 * HOME - Crear tres peticiones randon para productos destacados, ofertas y random
 * ABOUT - Peticiones para testimoniales
-* PRODUCTS - Peticion con filtro de fecha para productos (tengo que eliminar toda la tabla de productos y crearla con el campo fecha)
+* ~PRODUCTS - Peticion con filtro de fecha para productos (tengo que eliminar toda la tabla de productos y crearla con el campo fecha)~
 * PRODUCT - Validadar si el producto ya esta en favoritos para no cargarlo dos veces
 * PRODUCTS / PRODUCT / CARD - Manejar el formato de moneda para que no muestre mas de 2 decimales y que use punto para separar los miles
 * ~USER / PURCHASES - Peticion para crear y obtener informacion de reserva de compra~
