@@ -135,6 +135,9 @@ export const checkNoProductInCart = () => {
     accountant.innerHTML = productCount;
     accountantMobile.innerHTML = productCount;
 
+    if( productCount === 0 ) accountantMobile.classList.add('cart-count');
+    else accountantMobile.classList.remove('cart-count');
+
     if ( productCount === 0 ) cartContainer.classList.add('no-product-cart');
     else cartContainer.classList.remove('no-product-cart');
 }
