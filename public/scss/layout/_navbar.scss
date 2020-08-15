@@ -80,6 +80,12 @@
             height: 40px;
             background-color: rgba(194, 194, 194, 0.2);
             border-radius: 50px;
+
+            &-link{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
 
         &-i{

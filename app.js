@@ -33,7 +33,10 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Variables globales
 app.use((req, res, next) => {
+  if( req.user ) app.locals.authenticated = true;
+  else app.locals.authenticated = false;
   app.locals.signupMessage = req.flash('signupMessage'); // Esto guarda el mensaje de forma global para usarlo en cualquier parte de la app, Creo que lo mejor es almacenarlo en la vista y mostrarlo ahi
   app.locals.signinMessage = req.flash('signinMessage');
   next();

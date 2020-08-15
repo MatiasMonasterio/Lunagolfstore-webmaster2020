@@ -90,8 +90,8 @@
             </div>  <!-- BUY -->
 
             <div class="desktop__noname-button user">
+                {{#if authenticated}}
                 <button class="desktop__icons-button"><i class="desktop__icons-i fas fa-user"></i></button>
-
                 <div class="user__dropdown desktop__noname-dropdown">
 
                     <header class="user__dropdown-header">
@@ -113,6 +113,11 @@
                         </ul>
                     </nav>
                 </div>  <!-- DESKTOP__NONAME-DROPDOW -->
+                {{/if}}
+
+                {{#unless authenticated}}
+                <a href="/user" class="desktop__icons-button desktop__icons-button-link"><i class="desktop__icons-i fas fa-user"></i></a>
+                {{/unless}}
             </div>  <!-- USER -->
         </div>  <!-- DESKTOP__NONAME -->
     </div>  <!-- NAVBAR DESKTOP -->
