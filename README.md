@@ -67,7 +67,7 @@ Link descarga para base de datos -- https://drive.google.com/drive/folders/1_DAB
 
 ### Node js
 
-* NAVBAR - Ocultar menu de usuario si no esta autenticado
+* ~NAVBAR - Ocultar menu de usuario si no esta autenticado~
 * FOOTER - Mostrar mensaje de registro a newslatter exitoso
 * ~HOME - Crear tres peticiones randon para productos destacados, ofertas y random~
 * ABOUT - Peticiones para testimoniales
