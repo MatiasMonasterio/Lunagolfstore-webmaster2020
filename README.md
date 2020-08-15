@@ -88,7 +88,7 @@ Link descarga para base de datos -- https://drive.google.com/drive/folders/1_DAB
 
 * NAVBAR - Agregar boton delete para limpiar el contendio del search
 * ~PRODUCTS - Eliminar el boton de mostrar mas productos si ya no hay mas en la base de datos~
-* PRODUCTS - Hacer que el primer select "Más relevante" limpie la url
+* ~PRODUCTS - Hacer que el primer select "Más relevante" limpie la url~
 * PRODUTS - Hacer funcionar los filtros en la version responsive
 * PRODUCT - Detectar si el producto ya esta en el cart para poder sacarlo desde la vista de productos
 * ~PRODUCT - Lo mismo pero con los favoritos~
