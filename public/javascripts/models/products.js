@@ -5,7 +5,6 @@ export class Products{
     filtersGroups = document.querySelectorAll('.filter__section');
 
     constructor(){
-        console.log('inicio');
         this.showCategoriesEvent();
         this.showFilterEvent();
         this.closeFilterEvent();
@@ -63,17 +62,8 @@ export class Products{
     }
 
     selectFormOption(){
-        const optionsList = document.querySelectorAll('.products-main__list-option');
-
-        optionsList.forEach( element => {
-            element.addEventListener('click', () => {
-                console.log('entro');
-                orderForm.submit();
-            })
-        });
-
         const path = window.location.search;
-        console.log( window.location );
+
         switch( path ){
             case '?order=priceDESC':
                 selectList.selectedIndex = 1;
@@ -98,15 +88,17 @@ export class Products{
                 break
         }
 
-        const selectOption = selectList.selectedIndex;
 
-        selectList.addEventListener('click', () => {
-            if( selectList.selectedIndex !== selectOption ){
+        // Evento para redireccionar en caso de que el valor del select cambie
+        selectList.addEventListener('change', (e) => {
 
-                if( selectList.selectedIndex === 0 ) orderForm.reset();
-                else orderForm.submit();
+            if( e.target.value === '' ) { // Si toma el valor por default vuelve al path original
+                window.location = window.location.origin + window.location.pathname;
+                return;
             }
-        })
+
+            orderForm.submit();
+        });
     }
 
 
@@ -138,7 +130,7 @@ export class Products{
         const filter = window.location.search;
 
         const response = await productServices( categoryId, filter );
-        console.log( response );
+        // console.log( response );
 
         response.forEach( element => {
             crearCardUI( element );
@@ -241,47 +233,3 @@ const crearCardUI = ( element ) => {
 
     productCardContainer.appendChild( container )
 }
-
-
-
-
-
-// DEFINICION DE VARIABLES
-// const filtersGroups = document.querySelectorAll('.filter__section');
-
-
-/***************************** DOM EVENST **********************/
-
-// Mostrar menu de navegacion para categorias
-// showCategories.addEventListener('click', () => {
-//     navMobile.classList.toggle('show-categories');
-// });
-
-// showFilter.addEventListener('click', () => {
-//     filter.classList.add('filter-show')
-// })
-
-// closeFilter.addEventListener('click', () => {
-//     filter.classList.remove('filter-show')
-// })
-
-// Mostrar items de filtors
-// filtersGroups.forEach( element => {
-//     element.addEventListener('click', (e) => {
-//         if( e.target.classList.contains('filter__section-title-icon') ) e.target.parentElement.click();
-
-//         if( e.target.classList.contains('filter__section-title') ){
-//             const listElement = e.target.parentElement;
-//             listElement.classList.toggle('show-list');
-//         }
-//     })
-// });
-
-
-// showSelect.addEventListener('click', () => {
-//     selectMobile.classList.add('select-mobile-show');
-// });
-
-// closeSelect.addEventListener('click', () => {
-//     selectMobile.classList.remove('select-mobile-show');
-// })
