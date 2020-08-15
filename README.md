@@ -39,7 +39,7 @@ Link descarga para base de datos -- https://drive.google.com/drive/folders/1_DAB
 * NAVBAR - Crear modal para el cart (responsive)
 * FOOTER - Mejorar diseño para alerta del neslatter de formato de correo incorrecto
 * HOME - Grid correspondiente a las categorias (correccion para la media query de tablets)
-* HOME - Definir fondo para el header que contraste
+* ~HOME - Definir fondo para el header que contraste~
 * ABOUT - Definir bien el dieseño general, anterior muy feo
 * PRODUCTS - Evitar scroll al cargar mas products (problema google chrome)
 * PRODUCTS - Eliminar botton para cargar mas productos cuando ya no haya mas
