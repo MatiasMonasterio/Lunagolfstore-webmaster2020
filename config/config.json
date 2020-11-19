@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "lunagolfstoredb",
-    "host": "127.0.0.1",
+    "username": "bb445c5be4519d",
+    "password": "ba5a353e",
+    "database": "heroku_f3c736ad8bbf365",
+    "host": "us-cdbr-east-02.cleardb.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "lunagolfstoredbt",
-    "host": "127.0.0.1",
+    "username": "bb445c5be4519d",
+    "password": "ba5a353e",
+    "database": "heroku_f3c736ad8bbf365t",
+    "host": "us-cdbr-east-02.cleardb.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "lunagolfstoredb",
-    "host": "127.0.0.1",
+    "username": "bb445c5be4519d",
+    "password": "ba5a353e",
+    "database": "heroku_f3c736ad8bbf365",
+    "host": "us-cdbr-east-02.cleardb.com",
     "dialect": "mysql"
   }
 }
