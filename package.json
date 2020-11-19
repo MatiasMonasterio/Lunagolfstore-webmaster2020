@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "local": "nodemon ./bin/www",
     "sass": "node-sass public/scss/main.scss  public/css/style.css --source-map=true --output-style=compressed -w",
     "postcss": "postcss public/css/style.css -r --use autoprefixer"
   },
